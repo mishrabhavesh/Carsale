@@ -4,4 +4,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
          :confirmable
+
+         validates :phone_no, presence: true , length: {minimum:10, maximum:12}
 end

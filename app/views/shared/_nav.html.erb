@@ -24,13 +24,18 @@
           <a class="dropdown-item" href="#">Something else here</a>
           </div>
       </li>
-      <li class="nav-item">
-          <%= link_to 'About',about_path, class: 'nav-link' %>
-      </li>
       </ul>
       <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      <div class=" d-flex mx-3">
+       <% if user_signed_in?  %>
+          <%= link_to 'Logout',destroy_user_session_path, class: 'nav-link btn btn-primary',method: :delete %>
+          <% else %>
+          <%= link_to 'Sign up',new_user_registration_path, class: 'nav-link btn btn-primary mx-3' %>
+          <%= link_to 'Login',new_user_session_path, class: 'nav-link btn btn-light ' %>
+          <%end%>
+       </div>   
       </form>
   </div>
   </nav>
