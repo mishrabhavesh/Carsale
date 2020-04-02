@@ -1,0 +1,2 @@
+class BrandModel < ApplicationRecord
+end

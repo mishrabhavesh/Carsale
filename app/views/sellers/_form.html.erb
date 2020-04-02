@@ -1,0 +1,44 @@
+<%= form_with(model: seller, local: true) do |form| %>
+  <% if seller.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(seller.errors.count, "error") %> prohibited this seller from being saved:</h2>
+
+      <ul>
+        <% seller.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+    <div class="field">
+    <%= collection_select(:seller, :city_id, City.all, :id, :name, {}, {:multiple => false}) %>
+  </div>
+   <div class="field">
+    <%= collection_select(:seller, :brand_id, Brand.all, :id, :name, {}, {:multiple => false}) %>
+  </div>
+   <div class="field">
+    <%= collection_select(:seller, :model_id, BrandModel.all, :id, :name, {}, {:multiple => false}) %>
+  </div>
+   <div class="field">
+    <%= collection_select(:seller, :registrationyear_id, Registrationyear.all, :id, :name, {}, {:multiple => false}) %>
+  </div>
+   <div class="field">
+    <%= collection_select(:seller, :registrationstate_id, Registrationstate.all, :id, :name, {}, {:multiple => false}) %>
+  </div>
+   <div class="field">
+    <%= collection_select(:seller, :variant_id, Variant.all, :id, :name, {}, {:multiple => false}) %>
+  </div>
+   <div class="field">
+    <%= collection_select(:seller, :kilometerdriven_id, Kilometerdriven.all, :id, :name, {}, {:multiple => false}) %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

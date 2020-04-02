@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  resources :kilometerdrivens
+  resources :variants
+  resources :registrationstates
+  resources :registrationyears
+  resources :brand_models
+  resources :brands
+  resources :cities
+  resources :sellers
   devise_for :users,path: '', path_names: {sign_in: 'login', sign_out: 'logout' }
   root to:'pages#home'
   get 'about', to: 'pages#about'

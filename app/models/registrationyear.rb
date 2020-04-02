@@ -1,0 +1,2 @@
+class Registrationyear < ApplicationRecord
+end
