@@ -9,10 +9,12 @@
       <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
          <%= link_to 'Sell', new_seller_path, class: "nav-link" %>
-      </>
+      <li/>
+      <% if logged_in?(:site_admin)%>
       <li class="nav-item">
           <%= link_to 'Admin', admin_admin_path, class: 'nav-link' %>
       </li>
+      <%end%>
       <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Dropdown

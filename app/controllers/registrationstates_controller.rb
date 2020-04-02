@@ -1,5 +1,6 @@
 class RegistrationstatesController < ApplicationController
   before_action :set_registrationstate, only: [:show, :edit, :update, :destroy]
+  access except: [:show, :edit, :create, :update, :new, :destroy, :index], user: {except:[:show, :edit, :create, :update, :new, :destroy, :index]}, site_admin: :all
 
   # GET /registrationstates
   # GET /registrationstates.json

@@ -1,6 +1,25 @@
 
-<h1>Hi</h1><%= current_user.first_name if current_user %>
-    
-
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="container">
+  <div class="row text-center">
+    <div class="col-md-6">
+        <% if logged_in?(:site_admin)  %>
+        <h1>Hi, Admin </h1>
+        <% elsif current_user %>
+        <h1>Hi,  <%= current_user.first_name %></h1>
+        <% else %>
+        <h1>Hi Guest</h1>
+        <% end %>
+        <div class="lead">
+          Here you can buy or sell your old cars and get exciting benefits along with that you can get the quotation of your cars 
+        </div>
+    </div>
+    <div class="col-md-6">
+      <div class="my-4">
+        <%= link_to 'Sell', new_seller_path, class: "btn  btn-lg btn-info" %>
+    </div>
+    <div>
+        <%= link_to 'Buy', sellers_path, class: "btn btn-lg btn-primary" %>
+    </div>
+    </div>
+  </div>
+</div>

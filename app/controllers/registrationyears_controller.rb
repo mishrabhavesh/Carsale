@@ -1,5 +1,6 @@
 class RegistrationyearsController < ApplicationController
   before_action :set_registrationyear, only: [:show, :edit, :update, :destroy]
+  access except: [:show, :edit, :create, :update, :new, :destroy, :index], user: {except:[:show, :edit, :create, :update, :new, :destroy, :index]}, site_admin: :all
 
   # GET /registrationyears
   # GET /registrationyears.json
