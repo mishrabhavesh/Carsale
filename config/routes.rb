@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
+  get 'admin/admin'
+  resources :models
   resources :kilometerdrivens
   resources :variants
   resources :registrationstates
   resources :registrationyears
-  resources :brand_models
   resources :brands
   resources :cities
   resources :sellers

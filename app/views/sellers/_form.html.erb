@@ -23,7 +23,7 @@
     <%= collection_select(:seller, :brand_id, Brand.all, :id, :name, {}, {:multiple => false}) %>
   </div>
    <div class="field">
-    <%= collection_select(:seller, :model_id, BrandModel.all, :id, :name, {}, {:multiple => false}) %>
+    <%= collection_select(:seller, :model_id, Model.all, :id, :name, {}, {:multiple => false}) %>
   </div>
    <div class="field">
     <%= collection_select(:seller, :registrationyear_id, Registrationyear.all, :id, :name, {}, {:multiple => false}) %>
