@@ -9,18 +9,17 @@
       <th colspan="3"></th>
     </tr>
   </thead>
-
   <tbody>
     <% @sellers.each do |seller| %>
       <tr>
-        <td><%= seller.name %></td>
         <td><%= seller.city.name %></td>
-        <td><%= seller.model.name %></td>
+        <td><%= seller.name %></td>
         <td><%= seller.kilometerdriven.name %></td>
         <td><%= seller.registrationyear.name %></td>
         <td><%= seller.registrationstate.name %></td>
         <td><%= seller.variant.name %></td>
          <% if logged_in?(:site_admin)%>
+         <td><%= link_to 'Change status', edit_token_path(seller.tokens.ids) %></td>
         <td><%= link_to 'Show', seller %></td>
         <td><%= link_to 'Edit', edit_seller_path(seller) %></td>
         <td><%= link_to 'Destroy', seller, method: :delete, data: { confirm: 'Are you sure?' } %></td>

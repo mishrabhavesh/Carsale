@@ -27,10 +27,10 @@ class SellersController < ApplicationController
   # POST /sellers.json
   def create
     @seller = Seller.new(seller_params)
-
     respond_to do |format|
       if @seller.save
-        format.html { redirect_to @seller, notice: 'Seller was successfully created.' }
+
+        format.html { redirect_to new_token_path, notice: 'Seller was successfully created.' }
         format.json { render :show, status: :created, location: @seller }
       else
         format.html { render :new }
@@ -71,6 +71,6 @@ class SellersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def seller_params
-      params.require(:seller).permit(:name, :city_id, :brand_id, :model_id, :registrationyear_id, :registrationstate_id, :variant_id, :kilometerdriven_id)
+      params.require(:seller).permit(:name, :city_id, :brand_id, :model_id, :registrationyear_id, :registrationstate_id, :variant_id, :kilometerdriven_id,:token_id)
     end
 end
