@@ -14,8 +14,13 @@
 
   <%= link_to 'Create new token', new_token_path %>
 
-<% if !logged_in?(:site_admin) %> 
+<% if !logged_in?(:site_admin) %>
+ <% if @mylist.empty? %>
+      <h1>You dont have any appointment</h1>
+      <% end %>
+      <% else %> 
     <% @mylist.each do |list| %>
+      
   <tr>
     <td>  <%= list.phoneno %></td>
     <td>  <%= list.created_at %></td>
