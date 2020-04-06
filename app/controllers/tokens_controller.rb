@@ -4,10 +4,12 @@ class TokensController < ApplicationController
 
   # GET /tokens
   def index
-    if params[:query].present?
-      @tokens = Token.find(params[:query]).status
-    end
-    @tokens = Token.all
+    if params[:search].blank?  
+      @tokens = Token.all
+    else  
+    @token= Token.find(params[:search])  
+    end  
+   
   end
 
   # GET /tokens/1

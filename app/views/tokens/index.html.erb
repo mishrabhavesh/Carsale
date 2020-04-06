@@ -11,13 +11,6 @@
   </thead>
 
   <tbody>
-
-     <%= form_tag root_path, method: :get do %>
-    <p>
-      <%= text_field_tag :query, params[:query] %>
-      <%= submit_tag "search", name: nil%>
-    </p>
-    <%end%>
     <% if logged_in? [:site_admin] %>
     <% @tokens.each do |token| %>
       <tr>
@@ -28,7 +21,7 @@
         <td><%= link_to 'Destroy', token, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
-    <>
+    <%end%>
   </tbody>
 </table>
 

@@ -11,5 +11,5 @@ class Seller < ApplicationRecord
     validates :city_id, presence: true
     validates :kilometerdriven_id, presence: true
     validates :registrationyear_id, presence: true
-    
+    belongs_to :user
 end
