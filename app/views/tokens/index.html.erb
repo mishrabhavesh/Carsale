@@ -15,10 +15,10 @@
   <%= link_to 'Create new token', new_token_path %>
 
 <% if !logged_in?(:site_admin) %>
+ 
  <% if @mylist.empty? %>
       <h1>You dont have any appointment</h1>
-      <% end %>
-      <% else %> 
+  <% else %> 
     <% @mylist.each do |list| %>
       
   <tr>
@@ -29,6 +29,7 @@
   </tr>
     <%end%>
     <%end%>
+  <% end %>
 
 <% if logged_in?(:site_admin) %> 
    <% @tokens.each do |token| %>

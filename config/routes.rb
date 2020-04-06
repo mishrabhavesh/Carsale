@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :tokens
   get 'admin/admin'
+  get 'search' , to: 'sellers#search'
   resources :models
   resources :kilometerdrivens
   resources :variants

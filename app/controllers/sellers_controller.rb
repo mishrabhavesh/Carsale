@@ -23,6 +23,11 @@ class SellersController < ApplicationController
   def edit
   end
 
+  def search
+      @cityid = City.all.where(name: params[:q]).pluck(:id)
+    @seller = Seller.all.where(city_id: @cityid)
+  end
+
   # POST /sellers
   # POST /sellers.json
   def create
