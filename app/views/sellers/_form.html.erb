@@ -11,10 +11,6 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
 
     <div class="field">
     <%= collection_select(:seller, :city_id, City.all, :id, :name, {}, {:multiple => false}) %>
@@ -23,8 +19,9 @@
     <%= collection_select(:seller, :brand_id, Brand.all, :id, :name, {}, {:multiple => false}) %>
   </div>
    <div class="field">
-    <%= collection_select(:seller, :model_id, Model.all, :id, :name, {}, {:multiple => false}) %>
-  </div>
+    <%= form.label :Model %>
+    <%= form.text_field :name %> 
+   </div>
    <div class="field">
     <%= collection_select(:seller, :registrationyear_id, Registrationyear.all, :id, :name, {}, {:multiple => false}) %>
   </div>
@@ -37,6 +34,13 @@
    <div class="field">
     <%= collection_select(:seller, :kilometerdriven_id, Kilometerdriven.all, :id, :name, {}, {:multiple => false}) %>
   </div>
+<<<<<<< HEAD
+=======
+
+  <div class="btn btn-primary">
+  Get quotation
+  </div>
+>>>>>>> authorization
   <div class="actions">
     <%= form.submit %>
   </div>

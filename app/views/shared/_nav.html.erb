@@ -15,17 +15,19 @@
           <%= link_to 'Admin', admin_admin_path, class: 'nav-link' %>
       </li>
       <%end%>
-      <li class="nav-item dropdown">
+      <% if user_signed_in? %>
+        <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown
+          My account
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
+          <%= link_to 'Edit', edit_user_registration_path(current_user), class: 'dropdown-item' %>
+          <a class="dropdown-item" href="#"><%= link_to 'My appointment', tokens_path %></a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#">Something else here</a>
           </div>
-      </li>
+      <% end %>
+        </li>
            <li class="nav-item">
           <a class="nav-link" href="#">Link</a>
       </li>
@@ -40,6 +42,9 @@
           <%= link_to 'Sign up',new_user_registration_path, class: 'nav-link btn btn-primary mx-3' %>
           <%= link_to 'Login',new_user_session_path, class: 'nav-link btn btn-light ' %>
           <%end%>
+        <% if logged_in?(:site_admin)%>
+          <%= link_to 'Update status', tokens_path, class: 'nav-link btn btn-success ml-3' %>
+        <%end%>
        </div>   
       </form>
   </div>
