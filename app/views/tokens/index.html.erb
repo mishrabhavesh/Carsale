@@ -11,8 +11,22 @@
   </thead>
 
   <tbody>
-    <% if logged_in? [:site_admin] %>
-    <% @tokens.each do |token| %>
+
+  <%= link_to 'Create new token', new_token_path %>
+
+<% if !logged_in?(:site_admin) %> 
+    <% @mylist.each do |list| %>
+  <tr>
+    <td>  <%= list.phoneno %></td>
+    <td>  <%= list.created_at %></td>
+    <td>  <%= list.status %></td>
+    <td>  <% list.id %></td>
+  </tr>
+    <%end%>
+    <%end%>
+
+<% if logged_in?(:site_admin) %> 
+   <% @tokens.each do |token| %>
       <tr>
         <td><%= token.phoneno %></td>
         <td><%= token.status %>  </td>
@@ -21,10 +35,11 @@
         <td><%= link_to 'Destroy', token, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
-    <%end%>
+
+<% end %>
+
+
+
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Token', new_token_path %>
