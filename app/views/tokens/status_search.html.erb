@@ -1,0 +1,14 @@
+<h1>Search result</h1>
+
+
+<% if @search.empty? %>
+  <h4>Enter a valid id</h4>  
+<%else%>
+  <% @search.each do |search| %>
+    <% if search.user_id == current_user.id %>
+      <%= search.status %>
+    <% else %>
+      <h3>You are not authorized to check this id</h3>
+    <% end %>
+  <% end %>
+<%end%>

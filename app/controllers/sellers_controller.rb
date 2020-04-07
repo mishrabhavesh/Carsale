@@ -24,7 +24,7 @@ class SellersController < ApplicationController
   end
 
   def search
-      @cityid = City.all.where(name: params[:q]).pluck(:id)
+    @cityid = City.all.where(name: params[:q]).pluck(:id)
     @seller = Seller.all.where(city_id: @cityid)
   end
 

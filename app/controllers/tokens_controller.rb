@@ -45,6 +45,10 @@ class TokensController < ApplicationController
     end
   end
 
+  def status_search
+    @search = Token.all.where(id: params[:q])
+  end
+
   # DELETE /tokens/1
   def destroy
     @token.destroy
