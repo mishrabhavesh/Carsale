@@ -1,10 +1,13 @@
-<h1>Search result</h1>
+<%= render 'shared/category_search' %>
+
+<h1>Search Variant year result</h1>
 <table>
 <tbody>
-  <% @seller.each do |seller| %>
+  <% @sellers.each do |seller| %>
   <tr>
     <td><%= seller.city.name %></td>
     <td><%= seller.name %></td>
+    <td><%= seller.brand.name %></td>
     <td><%= seller.kilometerdriven.name %></td>
     <td><%= seller.registrationyear.name %></td>
     <td><%= seller.registrationstate.name %></td>

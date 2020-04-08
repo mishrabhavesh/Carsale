@@ -1,10 +1,16 @@
 Rails.application.routes.draw do
   resources :tokens
   get 'admin/admin'
-  get 'search' , to: 'sellers#search'
   resources :models
   resources :kilometerdrivens
   resources :variants
+  get 'search_city' , to: 'sellers#search_city'
+  get 'search_brand', to: 'sellers#search_brand'
+  get 'search_registration_year', to: 'sellers#search_reg_year'
+  get 'search_variant', to: 'sellers#search_variant'
+  get 'search_registration_state', to: 'sellers#search_reg_state'
+  get 'search_kilometer', to: 'sellers#search_kilometer_driven'
+
   resources :registrationstates
   resources :registrationyears
   resources :brands

@@ -1,0 +1,18 @@
+<%= render 'shared/category_search' %>
+
+<h1>Search Kilometer year result</h1>
+<table>
+<tbody>
+  <% @sellers.each do |seller| %>
+  <tr>
+    <td><%= seller.city.name %></td>
+    <td><%= seller.name %></td>
+    <td><%= seller.brand.name %></td>
+    <td><%= seller.kilometerdriven.name %></td>
+    <td><%= seller.registrationyear.name %></td>
+    <td><%= seller.registrationstate.name %></td>
+    <td><%= seller.variant.name %></td>
+  </tr>
+    <% end %>
+  </tbody>
+</table>

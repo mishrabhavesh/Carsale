@@ -1,0 +1,31 @@
+<%= link_to 'All post', sellers_path %>
+
+<%= form_tag search_city_path, :method => 'get' do %>
+<%= collection_select :seller, :city_id, City.all, :id, :name, prompt: true %>
+<%= submit_tag "search" %>
+<% end %>
+
+<%= form_tag search_brand_path, :method => 'get' do %>
+<%= collection_select :seller, :brand_id, Brand.all, :id, :name, prompt: true %>
+<%= submit_tag "search" %>
+<% end %>
+
+<%= form_tag search_registration_year_path, :method => 'get' do %>
+<%= collection_select :seller, :registrationyear_id, Registrationyear.all, :id, :name, prompt: true %>
+<%= submit_tag "search" %>
+<% end %>
+
+<%= form_tag search_kilometer_path, :method => 'get' do %>
+<%= collection_select :seller, :kilometerdriven_id, Kilometerdriven.all, :id, :name, prompt: true %>
+<%= submit_tag "search" %>
+<% end %>
+
+<%= form_tag search_variant_path, :method => 'get' do %>
+<%= collection_select :seller, :variant_id, Variant.all, :id, :name, prompt: true %>
+<%= submit_tag "search" %>
+<% end %>
+
+<%= form_tag search_registration_state_path, :method => 'get' do %>
+<%= collection_select :seller, :registrationstate_id, Registrationstate.all, :id, :name, prompt: true %>
+<%= submit_tag "search" %>
+<% end %>

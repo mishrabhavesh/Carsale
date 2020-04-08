@@ -1,11 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Sellers</h1>
-
-<%= form_tag sellers_path, :method => 'get' do %>
-<%= collection_select :seller, :city_id, City.all, :id, :name, prompt: true %>
-<%= submit_tag "search" %>
-<% end %>
+<%= render 'shared/category_search' %>
 <table>
   <thead>
     <tr>
@@ -18,6 +14,7 @@
       <tr>
         <td><%= seller.city.name %></td>
         <td><%= seller.name %></td>
+        <td><%= seller.brand.name %></td>
         <td><%= seller.kilometerdriven.name %></td>
         <td><%= seller.registrationyear.name %></td>
         <td><%= seller.registrationstate.name %></td>
@@ -32,7 +29,6 @@
     <% end %>
   </tbody>
 </table>
-
 <br>
 
 <%= link_to 'Back to home', root_path, class: "btn btn-dark" %>

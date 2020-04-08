@@ -6,12 +6,8 @@ class SellersController < ApplicationController
   # GET /sellers
   # GET /sellers.json
   def index
-    if params[:seller] and params[:seller][:city_id]
-      @sellers = Seller.where(city_id: params[:seller][:city_id])
-    else
-      @sellers = Seller.all
-    end
-  end
+    @sellers = Seller.all
+  end 
 
   # GET /sellers/1
   # GET /sellers/1.json
@@ -27,10 +23,46 @@ class SellersController < ApplicationController
   def edit
   end
 
-  def search
-    @cityid = City.all.where(name: params[:q]).pluck(:id)
-    @seller = Seller.all.where(city_id: @cityid)
+  def search_city
+    if params[:seller] and params[:seller][:city_id]
+      @sellers = Seller.where(city_id: params[:seller][:city_id])
+    end
   end
+
+  def search_brand
+    if params[:seller] and params[:seller][:brand_id]
+      @sellers = Seller.where(brand_id: params[:seller][:brand_id])
+    end
+  end
+
+  def search_reg_year
+    if params[:seller] and params[:seller][:registrationyear_id]
+      @sellers = Seller.where(registrationyear_id: params[:seller][:registrationyear_id])
+    end
+  end
+  
+  def search_kilometer_driven
+    if params[:seller] and params[:seller][:kilometerdriven_id]
+      @sellers = Seller.where(kilometerdriven_id: params[:seller][:kilometerdriven_id])
+    end
+  end
+
+  def search_variant
+    if params[:seller] and params[:seller][:variant_id]
+      @sellers = Seller.where(variant_id: params[:seller][:variant_id])
+    end
+  end
+
+  def search_reg_state
+    if params[:seller] and params[:seller][:registrationstate_id]
+      @sellers = Seller.where(registrationstate_id: params[:seller][:registrationstate_id])
+    end
+  end
+
+  
+
+
+  
 
   # POST /sellers
   # POST /sellers.json
