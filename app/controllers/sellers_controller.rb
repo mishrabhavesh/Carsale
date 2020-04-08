@@ -6,7 +6,11 @@ class SellersController < ApplicationController
   # GET /sellers
   # GET /sellers.json
   def index
-    @sellers = Seller.all
+    if params[:seller] and params[:seller][:city_id]
+      @sellers = Seller.where(city_id: params[:seller][:city_id])
+    else
+      @sellers = Seller.all
+    end
   end
 
   # GET /sellers/1
@@ -35,12 +39,9 @@ class SellersController < ApplicationController
     @seller.user_id = current_user.id
     respond_to do |format|
       if @seller.save
-
         format.html { redirect_to new_token_path, notice: 'Seller was successfully created.' }
-        format.json { render :show, status: :created, location: @seller }
       else
         format.html { render :new }
-        format.json { render json: @seller.errors, status: :unprocessable_entity }
       end
     end
   end

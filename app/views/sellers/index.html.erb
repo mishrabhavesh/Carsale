@@ -2,6 +2,10 @@
 
 <h1>Sellers</h1>
 
+<%= form_tag sellers_path, :method => 'get' do %>
+<%= collection_select :seller, :city_id, City.all, :id, :name, prompt: true %>
+<%= submit_tag "search" %>
+<% end %>
 <table>
   <thead>
     <tr>
@@ -19,7 +23,7 @@
         <td><%= seller.registrationstate.name %></td>
         <td><%= seller.variant.name %></td>
          <% if logged_in?(:site_admin)%>
-         <td><%= link_to 'Change status', edit_token_path(seller.tokens.ids) %></td>
+         <td><%= link_to 'Change status', edit_token_path(seller) %></td>
         <td><%= link_to 'Show', seller %></td>
         <td><%= link_to 'Edit', edit_seller_path(seller) %></td>
         <td><%= link_to 'Destroy', seller, method: :delete, data: { confirm: 'Are you sure?' } %></td>
