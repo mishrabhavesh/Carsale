@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get 'search_variant', to: 'sellers#search_variant'
   get 'search_registration_state', to: 'sellers#search_reg_state'
   get 'search_kilometer', to: 'sellers#search_kilometer_driven'
+  get 'search_model', to: 'sellers#search_model'
 
   resources :registrationstates
   resources :registrationyears

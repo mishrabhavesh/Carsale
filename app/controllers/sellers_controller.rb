@@ -23,6 +23,12 @@ class SellersController < ApplicationController
   def edit
   end
 
+  def search_model
+    if params[:seller] and params[:seller][:model_id]
+      @sellers = Seller.where(model_id: params[:seller][:model_id])
+    end
+  end
+
   def search_city
     if params[:seller] and params[:seller][:city_id]
       @sellers = Seller.where(city_id: params[:seller][:city_id])
@@ -110,6 +116,6 @@ class SellersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def seller_params
-      params.require(:seller).permit(:name, :city_id, :brand_id, :model_id, :registrationyear_id, :registrationstate_id, :variant_id, :kilometerdriven_id,:token_id, :user_id)
+      params.require(:seller).permit(:city_id, :brand_id, :model_id, :registrationyear_id, :registrationstate_id, :variant_id, :kilometerdriven_id,:token_id, :user_id)
     end
 end

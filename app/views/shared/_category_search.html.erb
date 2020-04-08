@@ -29,3 +29,8 @@
 <%= collection_select :seller, :registrationstate_id, Registrationstate.all, :id, :name, prompt: true %>
 <%= submit_tag "search" %>
 <% end %>
+
+<%= form_tag search_model_path, :method => 'get' do %>
+<%= collection_select :seller, :model_id, Model.all, :id, :name, prompt: true %>
+<%= submit_tag "search" %>
+<% end %>
