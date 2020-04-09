@@ -11,6 +11,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
          :confirmable         
-       
+         has_many :locations 
          has_many :tokens
 end
