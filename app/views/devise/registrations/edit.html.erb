@@ -1,47 +1,55 @@
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
+<div class="container card">
 
-<% x=current_user.tokens%>
-
-<%= link_to 'Channge Phone no', edit_token_path(x.first.id) %>
-
+  <%= render "shared/error" , obj: resource %>
+    <div class="fadeIn first text-center ">
+      <h3 class="py-3 h2 text-dark card-header " >Edit user details</h3>
+  </div>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-    <%= render "shared/error" , obj: resource %>
+<div class="row form-group">
+    <div class="col-md-6 ">
+      <div class="field py-3">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" , class: "form-control"%>
+      </div>
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+      <% end %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      <div class="field py-3">
+        <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+        <%= f.password_field :password, autocomplete: "new-password" , class: "form-control"%>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="field py-3">
+        <%= f.label :password_confirmation %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
+      </div>
+
+      <div class="field py-3">
+        <%= f.label :current_password %> <i>(we need your this to confirm your changes)</i><br />
+        <%= f.password_field :current_password, autocomplete: "current-password", class: "form-control" %>
+      </div>
+    </div>
   </div>
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
 
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
+      <div class="actions text-center">
+        <%= f.submit "Update" %>
+      </div>
     <% end %>
-  </div>
+    <div class="text-center card-footer">
+       <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %>
+       <%= link_to "Back to Home", :back , class: "btn btn-info"%> 
+       <%if   !current_user.tokens.empty? %>
+      <% x = current_user.tokens%>
+      <%= link_to 'Channge Phone no', edit_token_path(x.first.id) , class: "btn btn-primary"%>
+      <% else %>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
+      <h3 class="btn btn-primary m-0 ">You have not submitted your phone no yet</h3>
+      <% end %>
+      
+    </div>
+</div>
+ 

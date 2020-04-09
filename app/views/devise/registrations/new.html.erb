@@ -1,30 +1,39 @@
-<h2>Sign up</h2>
-
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  <div class="wrapper fadeInDown">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+  <div class="fadeIn first ">
+      <h3 class="py-3 h2 text-dark card-header " >Sign up</h3>
   </div>
 
+  <form>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+    <div class="field py-2 fadeIn second mt-3" id="login" >
+      <%= f.label :email %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "", type: 'text' %>
+    </div>
+
+    <div class="field py-2 fadeIn third" id="password">
+      <%= f.label :password %><br />
+      <%= f.password_field :password, autocomplete: "new-password", type: "text" %>
+    </div>
+
+
+    <div class="field fadeIn py-2 third" id="password">
+      <%= f.label :password_confirmation %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", type: "text" %>
+    </div>
+
+
+    <div class="actions fadeIn fourth">
+      <%= f.submit "Sign up" , type: "submit" %>
+    </div>
+  </form>
+      <%= render "devise/shared/links" %>
   </div>
+</div>
+  <% end %>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
