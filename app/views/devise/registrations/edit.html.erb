@@ -6,7 +6,7 @@
 <%= link_to 'Channge Phone no', edit_token_path(x.first.id) %>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+    <%= render "shared/error" , obj: resource %>
 
   <div class="field">
     <%= f.label :email %><br />
