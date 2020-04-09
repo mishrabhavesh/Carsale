@@ -1,6 +1,6 @@
 class LocationsController < ApplicationController
   before_action :set_location, only: [:show, :edit, :update, :destroy]
-  access all: [:index, :show, :new, :edit, :create, :update, :destroy], user: :all
+  access except: [:show, :edit, :create, :update, :new, :destroy, :index], user: {except:[:destroy]}, site_admin: :all
 
   # GET /locations
   def index
