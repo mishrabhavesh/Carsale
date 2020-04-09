@@ -1,3 +1,4 @@
+<div class="container mt-5 py-4 card shadow-lg p-3 mb-5 bg-white rounded">
 <%= form_with(model: seller, local: true) do |form| %>
   <% if seller.errors.any? %>
     <div id="error_explanation">
@@ -10,34 +11,35 @@
       </ul>
     </div>
   <% end %>
-
-
-    <div class="field">
-    <%= collection_select(:seller, :city_id, City.all, :id, :name, {}, {:multiple => false}) %>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="field ">
+        <%= collection_select(:seller, :city_id, City.all, :id, :name, {},  {:class => 'form-control '}) %>
+      </div>
+      <div class="field">
+        <%= collection_select(:seller, :brand_id, Brand.all, :id, :name, {}, {:class => 'form-control '}) %>
+      </div>
+      <div class="field">
+            <%= collection_select(:seller, :model_id, Model.all, :id, :name, {}, {:class => 'form-control '}) %>
+      </div>
+      <div class="field">
+        <%= collection_select(:seller, :registrationyear_id, Registrationyear.all, :id, :name, {}, {:class => 'form-control '}) %>
+      </div>
+    </div>
+    <div class="col-md-6">  
+      <div class="field">
+        <%= collection_select(:seller, :registrationstate_id, Registrationstate.all, :id, :name, {}, {:class => 'form-control '}) %>
+      </div>
+      <div class="field">
+        <%= collection_select(:seller, :variant_id, Variant.all, :id, :name, {}, {:class => 'form-control '}) %>
+      </div>
+      <div class="field">
+        <%= collection_select(:seller, :kilometerdriven_id, Kilometerdriven.all, :id, :name, {}, {:class => 'form-control '}) %>
+      </div>
+    </div>
+  </div>    
+  <div class="actions text-center mt-4  ">
+    <%= form.submit class: " shadow-sm p-3 mb-5  rounded"%>
   </div>
-   <div class="field">
-    <%= collection_select(:seller, :brand_id, Brand.all, :id, :name, {}, {:multiple => false}) %>
-  </div>
-   <div class="field">
-        <%= collection_select(:seller, :model_id, Model.all, :id, :name, {}, {:multiple => false}) %>
-   </div>
-   <div class="field">
-    <%= collection_select(:seller, :registrationyear_id, Registrationyear.all, :id, :name, {}, {:multiple => false}) %>
-  </div>
-   <div class="field">
-    <%= collection_select(:seller, :registrationstate_id, Registrationstate.all, :id, :name, {}, {:multiple => false}) %>
-  </div>
-   <div class="field">
-    <%= collection_select(:seller, :variant_id, Variant.all, :id, :name, {}, {:multiple => false}) %>
-  </div>
-   <div class="field">
-    <%= collection_select(:seller, :kilometerdriven_id, Kilometerdriven.all, :id, :name, {}, {:multiple => false}) %>
-  </div>
-
-  <div class="btn btn-primary">
-  Get quotation
-  </div>
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+      <% end %>
+</div>
