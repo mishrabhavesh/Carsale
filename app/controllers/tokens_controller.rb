@@ -30,7 +30,7 @@ class TokensController < ApplicationController
     @token.user_id = current_user.id
 
     if @token.save
-      redirect_to @token, Success: 'Token was successfully created.'
+      redirect_to @token, notice: 'Token was successfully created.'
     else
       render :new
     end
@@ -39,7 +39,7 @@ class TokensController < ApplicationController
   # PATCH/PUT /tokens/1
   def update
     if @token.update(token_params)
-      redirect_to @token, info: 'Token was successfully updated.'
+      redirect_to @token, notice: 'Token was successfully updated.'
     else
       render :edit
     end
@@ -52,7 +52,7 @@ class TokensController < ApplicationController
   # DELETE /tokens/1
   def destroy
     @token.destroy
-    redirect_to tokens_url, danger: 'Token was successfully destroyed.'
+    redirect_to tokens_url, notice: 'Token was successfully destroyed.'
   end
 
   private
