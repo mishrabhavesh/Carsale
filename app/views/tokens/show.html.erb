@@ -8,5 +8,17 @@
 <h3>Your token no is <%= @token.id %> </h3>
 <h3> your add status is in processing</h3>
 
+
+<% x= @token.id%>
+<% x = (x%5 + 1) %>
+
+<h2>Your car cost price is </h2>
+
+<% Carcost.find(x) do |cost| %>
+<%= cost.condition %>
+<%= cost.price %>
+<% end %>
+
+
 <%= link_to 'Edit', edit_token_path(@token) %> |
 <%= link_to 'Back to Home', root_path %>

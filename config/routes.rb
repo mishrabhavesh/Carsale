@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :carcosts
   resources :tokens
   get 'admin/admin'
   resources :models

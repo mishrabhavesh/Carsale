@@ -98,6 +98,7 @@ class SellersController < ApplicationController
     end
   end
 
+
   # DELETE /sellers/1
   # DELETE /sellers/1.json
   def destroy

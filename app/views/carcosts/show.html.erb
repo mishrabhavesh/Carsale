@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Condition:</strong>
+  <%= @carcost.condition %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @carcost.price %>
+</p>
+
+<%= link_to 'Edit', edit_carcost_path(@carcost) %> |
+<%= link_to 'Back', carcosts_path %>
