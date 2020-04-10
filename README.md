@@ -1,24 +1,31 @@
-# README
+## This is a car selling website page
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### At first user need to login or signup 
+ #### For signup
+  >They need to give their email id and password.
+  >Then they will receive conformation mail and they need to confirm it to login
+#### After login there will be option to buy or sell
 
-Things you may want to cover:
+##### To sell car and get quotation
+>First need to give their car details and submit the form.
+>Then they will be asked to give their phone no to generate a token id
+>The token id generated will be valid to only that specified user.
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+##### There is My account option in navbar
+  * Edit
+  > User can edit their credentials like email id or phone no. If user had not generated any token then cannot update their phone no
+  
+  * My appointment
+  > Here user can check all the appointment they have generated along with their appointment id and status
+  * Branch
+  > Here user can create their branch just by typing the place name. The coordinates corresponding to that place will be           automatically be generated
+  * Search bar
+  > Here user can paste their Token id and get the status of their add and if user entered token id of other user then they         will get an unauthorize message and an invalid message if the token id is invalid
+  
+ ##### Buy Section
+ > User can see all the post adds and also filter the adds according to their category
+ 
+ ### ADMIN SECTION
+ * There is a admin tab in nav bar which is redirected to the page where admin can perform ## CRUD ## operation
+ * There is a update status tab where admin can updated the status of user add and user will get a email confirmation
+ 
