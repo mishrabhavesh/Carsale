@@ -48,6 +48,10 @@
 
 <div class="container home">
   <table class="table">
+  <%= link_to 'Create new token', new_token_path, class: "btn btn-primary rounded-pill my-4" %>
+  <% if @mylist.empty? %>
+      <h1>You dont have any appointment. Why don't create a new one</h1> 
+  <% else %> 
     <thead class="thead-dark">
       <tr>
         <th scope="col">Token no</th>
@@ -68,7 +72,7 @@
         <td>  <%= list.phoneno %></td>
         <td>  <%= time_ago_in_words(list.created_at) %></td>
         <td>  <%= list.status %></td>
-      </tr>
+      </tr> 
     <% end %>
   <%end%>
     <% if logged_in?(:site_admin) %> 
@@ -83,8 +87,8 @@
       </tr>
     <% end %>
 <% end %>
-
     </tbody>
+    <% end %>
   </table>
 </div>
 
