@@ -1,28 +1,31 @@
-<%= form_with(model: token, local: true) do |form| %>
-  <% if token.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(token.errors.count, "error") %> prohibited this token from being saved:</h2>
+<div class="container">
+  <%= form_with(model: token, local: true) do |form| %>
+    <% if token.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(token.errors.count, "error") %> prohibited this token from being saved:</h2>
 
-      <ul>
-        <% token.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
+        <ul>
+          <% token.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+  <div class="d-flex flex-column align-items-center ">
+    <div class="field text-center text-dark my-2">
+      <%= form.label :phoneno %>
+      <%= form.text_field :phoneno , class: "form-control" %>
     </div>
+    <% if logged_in?(:site_admin) %>
+    <div class="field text-center">
+      <%= form.label :status %>
+      <%= form.text_field :status , class: "form-control"%>
+    </div>
+    
+  <%end%>
+    <div class="actions text-center my-3">
+      <%= form.submit  %>
+    </div>
+  </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :phoneno %>
-    <%= form.text_field :phoneno %>
-  </div>
-<% if logged_in?(:site_admin) %>
-    <div class="field">
-    <%= form.label :status %>
-    <%= form.text_field :status %>
-  </div>
-  
-<%end%>
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>

@@ -1,18 +1,18 @@
 
-<div class="container">
+    <%= stylesheet_link_tag 'pages', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+<div class="container home">
   <div class="row text-center">
-    <div class="col-md-6">
+    <div class="col-6">
         <div class="lead">
           Here you can buy or sell your old cars and get exciting benefits along with that you can get the quotation of your cars 
         </div>
     </div>
-    <div class="col-md-6">
-      <div class="my-4">
-        <%= link_to 'Sell', new_seller_path, class: "btn  btn-lg btn-info" %>
+  <div>
+    <div class="my-4">
+        <%= link_to 'Sell', new_seller_path, class: "btn px-5 btn-lg btn-info rounded-pill" %>
       </div>
       <div>
-        <%= link_to 'Buy', sellers_path, class: "btn btn-lg btn-primary" %>
+        <%= link_to 'Buy', sellers_path, class: "btn btn-lg px-5 btn-primary rounded-pill" %>
       </div>
-    </div>
-  <div>
 </div>

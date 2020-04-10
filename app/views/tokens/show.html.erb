@@ -10,15 +10,12 @@
 
 
 <% x= @token.id%>
-<% x = (x%4 + 1) %>
+<% x = (x % 4 + 1) %>
+<%cost=  Carcost.find(x) %>
 
 <h2>Your car cost price is </h2>
-
-<% Carcost.find(x) do |cost| %>
 <%= cost.condition %>
 <%= cost.price %>
-<% end %>
 
 
-<%= link_to 'Edit', edit_token_path(@token) %> |
-<%= link_to 'Back to Home', root_path %>
+<%= link_to 'Back to Home', root_path, class: "btn btn-dark btn-lg rounded-pill" %>

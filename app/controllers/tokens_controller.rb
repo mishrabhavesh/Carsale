@@ -39,7 +39,7 @@ class TokensController < ApplicationController
   # PATCH/PUT /tokens/1
   def update
     if @token.update(token_params)
-      redirect_to @token, notice: 'Token was successfully updated.'
+      redirect_to tokens_path, notice: 'Token was successfully updated.'
     else
       render :edit
     end

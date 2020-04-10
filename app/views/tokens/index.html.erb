@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Tokens</h1>
-
+<h1 class="my-4" align="center">Appointment</h1>
+<!--
 <table>
   <thead>
     <tr>
@@ -11,15 +11,15 @@
 
   <tbody>
 
-  <%= link_to 'Create new token', new_token_path %>
-
+  
+<%= link_to 'Create new token', new_token_path, class: "btn btn-primary rounded-pill" %>
 <% if !logged_in?(:site_admin) %>
  
  <% if @mylist.empty? %>
-      <h1>You dont have any appointment. Why don't create a new one</h1>
+      <h1>You dont have any appointment. Why don't create a new one</h1> 
   <% else %> 
     <% @mylist.each do |list| %>
-      
+     
   <tr>
     <td> <%= list.id %> </td>
     <td>  <%= list.phoneno %></td>
@@ -41,11 +41,50 @@
         <td><%= link_to 'Destroy', token, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
+<% end %>
+  </tbody>
+</table> -->
 
+
+<div class="container home">
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Token no</th>
+        <th scope="col">Phone no</th>
+        <th scope="col">Created </th>
+        <th scope="col">Status</th>
+        <% if logged_in?(:site_admin) %> 
+        <th>Update Status</th>
+        <th>Delete appointment</th>
+        <% end %>
+      </tr>
+    </thead>
+    <tbody>
+    <% if !logged_in?(:site_admin) %> 
+    <% @mylist.each do |list| %>
+      <tr>
+        <td> <%= list.id %> </td>
+        <td>  <%= list.phoneno %></td>
+        <td>  <%= time_ago_in_words(list.created_at) %></td>
+        <td>  <%= list.status %></td>
+      </tr>
+    <% end %>
+  <%end%>
+    <% if logged_in?(:site_admin) %> 
+   <% @tokens.each do |token| %>
+      <tr>
+      <td><%= token.id %></td>
+        <td><%= token.phoneno %></td>
+        <td><%= token.status %>  </td>
+        <td><%= link_to 'Show', token %></td>
+        <td><%= link_to 'Edit', edit_token_path(token) %></td>
+        <td><%= link_to 'Destroy', token, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
 <% end %>
 
-
-
-  </tbody>
-</table>
+    </tbody>
+  </table>
+</div>
 

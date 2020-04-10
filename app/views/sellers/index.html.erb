@@ -60,15 +60,15 @@
         <td><%= seller.registrationstate.name %></td>
         <td><%= seller.variant.name %></td>
          <% if logged_in?(:site_admin)%>
-         <td><%= link_to 'Change status', edit_token_path(seller) ,class: "nav-link  btn btn-info" %></td>
-        <td><%= link_to 'Edit', edit_seller_path(seller),class:"nav-link btn btn-info " %></td>
-        <td><%= link_to 'Destroy', seller, method: :delete, data: { confirm: 'Are you sure?' },class: "nav-link  btn btn-info" %></td>
+         <td><%= link_to 'Change status', edit_token_path(seller) ,class: "nav-link  btn btn-info rounded-pill" %></td>
+        <td><%= link_to 'Edit', edit_seller_path(seller),class:"nav-link btn btn-info rounded-pill" %></td>
+        <td><%= link_to 'Destroy', seller, method: :delete, data: { confirm: 'Are you sure?' },class: "nav-link  btn btn-info rounded-pill" %></td>
       <%end%>
       </tr>
     <% end %>
   </tbody>
 </table>
 <div class="text-center my-3 p-2">
-  <%= link_to 'Back to home', root_path, class: "btn btn-primary" %>
+  <%= link_to 'Back to home', root_path, class: "btn btn-primary rounded-pill" %>
 </div>
 
