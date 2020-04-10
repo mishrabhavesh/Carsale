@@ -16,7 +16,7 @@
 <% if !logged_in?(:site_admin) %>
  
  <% if @mylist.empty? %>
-      <h1>You dont have any appointment</h1>
+      <h1>You dont have any appointment. Why don't create a new one</h1>
   <% else %> 
     <% @mylist.each do |list| %>
       
