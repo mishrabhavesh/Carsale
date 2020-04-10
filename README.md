@@ -1,4 +1,4 @@
-## This is a car selling website page
+## This is a car selling website where user can get the quotation of their car
 
 ### At first user need to login or signup 
  #### For signup
