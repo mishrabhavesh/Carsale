@@ -2,7 +2,7 @@
 
 ### At first user need to login or signup 
  #### For signup
-  >They need to give their email id and password.
+  >They need to give their email id, password and role like Admin, Buyer, Seller
   >Then they will receive conformation mail and they need to confirm it to login
 #### After login there will be option to buy or sell
 
