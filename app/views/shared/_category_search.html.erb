@@ -1,45 +1,49 @@
+<%= stylesheet_link_tag 'search', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <div class=" d-flex">
+    <div class="d-flex flex-column justify-content-end align-items-start ">
+      <%= form_tag search_city_path, :method => 'get' do %>
+      <h6>Search by city</h6>
+      <%= collection_select :seller, :city_id, City.all, :id, :name, prompt: true, class: 'form-control' %>
+      <%= submit_tag "search"  %>
+      <% end %>
 
-<div class="text-center my-4 "><%= link_to 'All post', sellers_path, class: 'btn btn-info btn-lg' %></div>
-<div class=" d-flex">
-<%= form_tag search_city_path, :method => 'get' do %>
-<h6>Search by city</h6>
-<%= collection_select :seller, :city_id, City.all, :id, :name, prompt: true, class: 'form-control' %>
-<%= submit_tag "search"  %>
-<% end %>
+      <%= form_tag search_brand_path, :method => 'get' do %>
+      <h6>Search by Brand</h6>
+      <%= collection_select :seller, :brand_id, Brand.all, :id, :name, prompt: true %>
+      <%= submit_tag "search" %>
+      <% end %>
 
-<%= form_tag search_brand_path, :method => 'get' do %>
-<h6>Search by Brand</h6>
-<%= collection_select :seller, :brand_id, Brand.all, :id, :name, prompt: true %>
-<%= submit_tag "search" %>
-<% end %>
+      <%= form_tag search_registration_year_path, :method => 'get' do %>
+      <h6>Search by Registrationyear</h6>
+      <%= collection_select :seller, :registrationyear_id, Registrationyear.all, :id, :name, prompt: true %>
+      <%= submit_tag "search" %>
+      <% end %>
+      <div class="text-center my-4 "><%= link_to 'All post', sellers_path, class: 'btn btn-info btn-lg' %></div>
 
-<%= form_tag search_registration_year_path, :method => 'get' do %>
-<h6>Search by Registrationyear</h6>
-<%= collection_select :seller, :registrationyear_id, Registrationyear.all, :id, :name, prompt: true %>
-<%= submit_tag "search" %>
-<% end %>
+    </div>
+    <div class="d-flex flex-column justify-content-end align-items-end">
+      <%= form_tag search_kilometer_path, :method => 'get' do %>
+      <h6>Search by Kilometerdriven</h6>
+      <%= collection_select :seller, :kilometerdriven_id, Kilometerdriven.all, :id, :name, prompt: true %>
+      <%= submit_tag "search" %>
+      <% end %>
 
-<%= form_tag search_kilometer_path, :method => 'get' do %>
-<h6>Search by Kilometerdriven</h6>
-<%= collection_select :seller, :kilometerdriven_id, Kilometerdriven.all, :id, :name, prompt: true %>
-<%= submit_tag "search" %>
-<% end %>
+      <%= form_tag search_variant_path, :method => 'get' do %>
+      <h6>Search by Variant</h6>
+      <%= collection_select :seller, :variant_id, Variant.all, :id, :name, prompt: true %>
+      <%= submit_tag "search" %>
+      <% end %>
 
-<%= form_tag search_variant_path, :method => 'get' do %>
-<h6>Search by Variant</h6>
-<%= collection_select :seller, :variant_id, Variant.all, :id, :name, prompt: true %>
-<%= submit_tag "search" %>
-<% end %>
+      <%= form_tag search_registration_state_path, :method => 'get' do %>
+      <h6>Search by Registrationstate</h6>
+      <%= collection_select :seller, :registrationstate_id, Registrationstate.all, :id, :name, prompt: true %>
+      <%= submit_tag "search" %>
+      <% end %>
 
-<%= form_tag search_registration_state_path, :method => 'get' do %>
-<h6>Search by Registrationstate</h6>
-<%= collection_select :seller, :registrationstate_id, Registrationstate.all, :id, :name, prompt: true %>
-<%= submit_tag "search" %>
-<% end %>
-
-<%= form_tag search_model_path, :method => 'get' do %>
-<h6>Search by Model</h6>
-<%= collection_select :seller, :model_id, Model.all, :id, :name, prompt: true %>
-<%= submit_tag "search" %>
-<% end %>
-</div>
+      <%= form_tag search_model_path, :method => 'get' do %>
+      <h6>Search by Model</h6>
+      <%= collection_select :seller, :model_id, Model.all, :id, :name, prompt: true %>
+      <%= submit_tag "search" %>
+      <% end %>
+    </div>
+  </div>    
