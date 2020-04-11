@@ -20,7 +20,7 @@
         <td><%= seller.registrationyear.name %></td>
         <td><%= seller.registrationstate.name %></td>
         <td><%= seller.variant.name %></td>
-         <% if logged_in?(:site_admin)%>
+         <% if logged_in?(:Admin)%>
          <td><%= link_to 'Change status', edit_token_path(seller) %></td>
         <td><%= link_to 'Show', seller %></td>
         <td><%= link_to 'Edit', edit_seller_path(seller) %></td>
@@ -42,7 +42,7 @@
       <th scope="col">Registration-Year</th>
       <th scope="col">Registration-State</th>
       <th scope="col">Variant</th>
-      <% if logged_in?(:site_admin)%>
+      <% if logged_in?(:Admin)%>
       <th scope="col">Appointment status</th>
       <th scope="col">Edit post</th>
       <th scope="col">Delete Post</th>
@@ -59,7 +59,7 @@
         <td><%= seller.registrationyear.name %></td>
         <td><%= seller.registrationstate.name %></td>
         <td><%= seller.variant.name %></td>
-         <% if logged_in?(:site_admin)%>
+         <% if logged_in?(:Admin)%>
          <td><%= link_to 'Change status', edit_token_path(seller) ,class: "nav-link  btn btn-info rounded-pill" %></td>
         <td><%= link_to 'Edit', edit_seller_path(seller),class:"nav-link btn btn-info rounded-pill" %></td>
         <td><%= link_to 'Destroy', seller, method: :delete, data: { confirm: 'Are you sure?' },class: "nav-link  btn btn-info rounded-pill" %></td>

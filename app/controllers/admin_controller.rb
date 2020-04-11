@@ -1,7 +1,5 @@
 class AdminController < ApplicationController
-  access except: [ :admin], user: {except:[ :admin]}, site_admin: :all
-
-  access except: [:show, :edit, :create, :update, :new, :destroy, :index], user: {except:[:show, :edit, :create, :update, :new, :destroy, :index]}, site_admin: :all
+  access except: [ :admin], user: {except:[ :admin]}, Admin: :all, Seller: {except:[ :admin]}, Buyer: {except:[ :admin]}
   def admin
     
   end

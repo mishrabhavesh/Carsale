@@ -24,6 +24,11 @@
       <%= f.label :password_confirmation %><br />
       <%= f.password_field :password_confirmation, autocomplete: "new-password", type: "text" %>
     </div>
+
+     <div class="field fadeIn py-2 third"> 
+      <%= f.label :role%>
+      <%= f.select :role,@user.available_roles %>
+    </div>
   
 
     <div class="actions fadeIn fourth">

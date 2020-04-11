@@ -1,6 +1,6 @@
 class TokensController < ApplicationController
   before_action :set_token, only: [:show, :edit, :update, :destroy]
-  access except: [:show, :edit, :create, :update, :new, :destroy, :index], user: {except: [ :destroy]}, site_admin: :all
+  access except: [:show, :edit, :create, :update, :new, :destroy, :index], user: {except:[:show, :edit, :create, :update, :new, :destroy, :index]}, Admin: :all ,Buyer: {except:[:show, :edit, :create, :update, :new, :destroy, :index]}, Seller: {except:[:destroy]}
   # GET /tokens
   def index
     @mylist = current_user.tokens
