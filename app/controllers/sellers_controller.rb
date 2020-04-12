@@ -1,7 +1,7 @@
 class SellersController < ApplicationController
   before_action :set_seller, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
-  access except: [:show, :edit, :create, :update, :new, :destroy, :index], user: {except:[:show, :edit, :create, :update, :new, :destroy, :index]}, Admin: :all ,Buyer: {except:[:index]}, Seller: {except:[:destroy,:index]}
+  access except: [:show, :edit, :create, :update, :new, :destroy, :index], user: {except:[:show, :edit, :create, :update, :new, :destroy, :index]}, Admin: :all ,Buyer: {except:[:new]}, Seller: {except:[:destroy,:index]}
 
   # GET /sellers
   # GET /sellers.json

@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1 class="my-4" align="center">Appointment</h1>
+<h1 class="my-4 card-header" align="center">Appointment</h1>
 <!--
 <table>
   <thead>
@@ -50,7 +50,7 @@
   <table class="table">
   <%= link_to 'Create new token', new_token_path, class: "btn btn-primary rounded-pill my-4" %>
   <% if @mylist.empty? and !logged_in?(:Admin) %>
-      <h1>You dont have any appointment. Why don't create a new one</h1> 
+      <h1>You dont have any appointment. Why don't you create a new one</h1> 
   <% else %> 
     <thead class="thead-dark">
       <tr>
@@ -71,7 +71,7 @@
         <td> <%= list.id %> </td>
         <td>  <%= list.phoneno %></td>
         <td>  <%= time_ago_in_words(list.created_at) %></td>
-        <td>  <%= list.status %></td>
+        <td>  <%= list.status.upcase %></td>
       </tr> 
     <% end %>
   <%end%>
