@@ -4,7 +4,7 @@
 ### rails db:seed (as registration year data is in seed file)
 
 
-### First sign up as admin and create all the operation and 
+### First sign up as admin and create all the required feild by clicking on admin pannel and 
 
 ### create car cost provide all the four details : fair, good, very good, excellent
 
