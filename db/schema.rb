@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_15_183156) do
+ActiveRecord::Schema.define(version: 2020_04_15_200038) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -84,10 +84,10 @@ ActiveRecord::Schema.define(version: 2020_04_15_183156) do
     t.integer "city_id"
     t.integer "brand_id"
     t.integer "model_id"
-    t.integer "registrationyear_id"
-    t.integer "registrationstate_id"
+    t.integer "registration_year_id"
+    t.integer "registration_state_id"
     t.integer "variant_id"
-    t.integer "kilometerdriven_id"
+    t.integer "kilometer_driven_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "phoneno"
@@ -126,4 +126,14 @@ ActiveRecord::Schema.define(version: 2020_04_15_183156) do
     t.index ["name"], name: "index_variants_on_name"
   end
 
+  add_foreign_key "locations", "users"
+  add_foreign_key "sellers", "brands"
+  add_foreign_key "sellers", "cities"
+  add_foreign_key "sellers", "kilometer_drivens"
+  add_foreign_key "sellers", "models"
+  add_foreign_key "sellers", "registration_states"
+  add_foreign_key "sellers", "registration_years"
+  add_foreign_key "sellers", "users"
+  add_foreign_key "sellers", "variants"
+  add_foreign_key "tokens", "users"
 end
