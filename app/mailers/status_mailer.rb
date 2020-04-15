@@ -5,9 +5,9 @@ class StatusMailer < ApplicationMailer
   #
   #   en.status_mailer.status_email.subject
   #
-  default :from => "mishra.bhavesh@outlook.com"
+  default from: "mishra.bhavesh@outlook.com"
 
   def status_email(user)
-   mail(:to => "<#{user.email}>", :subject => "Status changed")
+   mail(to: "<#{user.email}>", subject: "Status changed")
   end
 end
