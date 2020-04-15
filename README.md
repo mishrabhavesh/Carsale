@@ -1,5 +1,13 @@
 ## This is a car selling website where user can get the quotation of their car
 
+### Run rails db:migrate
+### rails db:seed (as registration year data is in seed file)
+
+
+### First sign up as admin and create all the required feild by clicking on admin pannel and 
+
+### create car cost provide all the four details : fair, good, very good, excellent
+
 ### At first user need to login or signup 
  #### For signup
   >They need to give their email id, password and role like Admin, Buyer, Seller
