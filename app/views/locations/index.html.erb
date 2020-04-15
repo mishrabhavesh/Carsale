@@ -10,29 +10,27 @@
   <h1 Class="card-header bg-dark text-light">My Branches</h1>
   </div>
   <div class="text-center my-4">
-      <%= link_to 'Create New Branch', new_location_path, class: "btn btn-info btn-lg" %>
+    <%= link_to 'Create New Branch', new_location_path, class: "btn btn-info btn-lg" %>
   </div>
   <table class="table">
-    <thead class="thead-light">
-      <tr>
-        <th scope="col">Address</th>
-        <th scope="col">Latitude</th>
-        <th scope="col">Longitude</th>
-        <th colspan="col">Show</th>
-        <th colspan="col" >Edit</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @locations.each do |location| %>
-        <tr>
-          <td><%= location.address %></td>
-          <td><%= location.latitude %></td>
-          <td><%= location.longitude %></td>
-          <td><%= link_to 'Show', location, class:"nav-link btn btn-dark btn-sm w-50" %></td>
-          <td><%= link_to 'Edit', edit_location_path(location) ,class:"nav-link btn btn-warning btn-sm w-50" %></td>
-        </tr>
-      <% end %>
+  <thead class="thead-light">
+    <tr>
+    <th scope="col">Address</th>
+    <th scope="col">Latitude</th>
+    <th scope="col">Longitude</th>
+    <th colspan="col">Show</th>
+    <th colspan="col" >Edit</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @locations.each do |location| %>
+    <tr>
+      <td><%= location.address %></td>
+      <td><%= location.latitude %></td>
+      <td><%= location.longitude %></td>
+      <td><%= link_to 'Show', location, class:"nav-link btn btn-dark btn-sm w-50" %></td>
+      <td><%= link_to 'Edit', edit_location_path(location) ,class:"nav-link btn btn-warning btn-sm w-50" %></td>
+    </tr>
+    <% end %>
   </table>
-
-
 <% end %>

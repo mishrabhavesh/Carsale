@@ -1,22 +1,22 @@
 <%= form_with(model: registrationyear, local: true) do |form| %>
   <% if registrationyear.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(registrationyear.errors.count, "error") %> prohibited this registrationyear from being saved:</h2>
+  <div id="error_explanation">
+    <h2><%= pluralize(registrationyear.errors.count, "error") %> prohibited this registrationyear from being saved:</h2>
 
-      <ul>
-        <% registrationyear.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
+    <ul>
+    <% registrationyear.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
+  </div>
   <% end %>
 
   <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+  <%= form.label :name %>
+  <%= form.text_field :name %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+  <%= form.submit %>
   </div>
 <% end %>

@@ -2,40 +2,40 @@
 <%= render "shared/error" , obj: resource %>
   <div class="wrapper fadeInDown">
   <div id="formContent">
-    <!-- Tabs Titles -->
+  <!-- Tabs Titles -->
   <div class="fadeIn first ">
-      <h3 class="py-3 h2 text-dark card-header " >Sign up</h3>
+    <h3 class="py-3 h2 text-dark card-header " >Sign up</h3>
   </div>
 
   <form>
 
-    <div class="field py-2 fadeIn second mt-3" id="login" >
-      <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "", type: 'text' %>
-    </div>
+  <div class="field py-2 fadeIn second mt-3" id="login" >
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "", type: 'text' %>
+  </div>
 
-    <div class="field py-2 fadeIn third" id="password">
-      <%= f.label :password %><br />
-      <%= f.password_field :password, autocomplete: "new-password", type: "text" %>
-    </div>
+  <div class="field py-2 fadeIn third" id="password">
+    <%= f.label :password %><br />
+    <%= f.password_field :password, autocomplete: "new-password", type: "text" %>
+  </div>
 
 
-    <div class="field fadeIn py-2 third" id="password">
-      <%= f.label :password_confirmation %><br />
-      <%= f.password_field :password_confirmation, autocomplete: "new-password", type: "text" %>
-    </div>
+  <div class="field fadeIn py-2 third" id="password">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", type: "text" %>
+  </div>
 
-     <div class="field fadeIn py-2 third"> 
-      <%= f.label :role%>
-      <%= f.select :role,@user.available_roles, class: "form-control " %>
-    </div>
+   <div class="field fadeIn py-2 third"> 
+    <%= f.label :role%>
+    <%= f.select :role,@user.available_roles, class: "form-control " %>
+  </div>
   
 
-    <div class="actions fadeIn fourth">
-      <%= f.submit "Sign up" , type: "submit" %>
-    </div>
+  <div class="actions fadeIn fourth">
+    <%= f.submit "Sign up" , type: "submit" %>
+  </div>
   </form>
-      <%= render "devise/shared/links" %>
+    <%= render "devise/shared/links" %>
   </div>
 </div>
   <% end %>

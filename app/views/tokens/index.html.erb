@@ -4,9 +4,9 @@
 <!--
 <table>
   <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
+  <tr>
+    <th colspan="3"></th>
+  </tr>
   </thead>
 
   <tbody>
@@ -16,31 +16,31 @@
 <% if !logged_in?(:Admin) %>
  
  <% if @mylist.empty? %>
-      <h1>You dont have any appointment. Why don't create a new one</h1> 
+    <h1>You dont have any appointment. Why don't create a new one</h1> 
   <% else %> 
-    <% @mylist.each do |list| %>
-     
+  <% @mylist.each do |list| %>
+   
   <tr>
-    <td> <%= list.id %> </td>
-    <td>  <%= list.phoneno %></td>
-    <td>  <%= time_ago_in_words(list.created_at) %></td>
-    <td>  <%= list.status %></td>
-    <td>  <% list.id %></td>
+  <td> <%= list.id %> </td>
+  <td>  <%= list.phoneno %></td>
+  <td>  <%= time_ago_in_words(list.created_at) %></td>
+  <td>  <%= list.status %></td>
+  <td>  <% list.id %></td>
   </tr>
-    <%end%>
-    <%end%>
+  <%end%>
+  <%end%>
   <% end %>
 
 <% if logged_in?(:Admin) %> 
    <% @tokens.each do |token| %>
-      <tr>
-        <td><%= token.phoneno %></td>
-        <td><%= token.status %>  </td>
-        <td><%= link_to 'Show', token %></td>
-        <td><%= link_to 'Edit', edit_token_path(token) %></td>
-        <td><%= link_to 'Destroy', token, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
+    <tr>
+    <td><%= token.phoneno %></td>
+    <td><%= token.status %>  </td>
+    <td><%= link_to 'Show', token %></td>
+    <td><%= link_to 'Edit', edit_token_path(token) %></td>
+    <td><%= link_to 'Destroy', token, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
 <% end %>
   </tbody>
 </table> -->
@@ -50,45 +50,45 @@
   <table class="table">
   <%= link_to 'Create new token', new_token_path, class: "btn btn-primary rounded-pill my-4" %>
   <% if @mylist.empty? and !logged_in?(:Admin) %>
-      <h1>You dont have any appointment. Why don't you create a new one</h1> 
+    <h1>You dont have any appointment. Why don't you create a new one</h1> 
   <% else %> 
-    <thead class="thead-dark">
-      <tr>
-        <th scope="col">Token no</th>
-        <th scope="col">Phone no</th>
-        <th scope="col">Created </th>
-        <th scope="col">Status</th>
-        <% if logged_in?(:Admin) %> 
-        <th>Update Status</th>
-        <th>Delete appointment</th>
-        <% end %>
-      </tr>
-    </thead>
-    <tbody>
-    <% if !logged_in?(:Admin) %> 
-    <% @mylist.each do |list| %>
-      <tr>
-        <td> <%= list.id %> </td>
-        <td>  <%= list.phoneno %></td>
-        <td>  <%= time_ago_in_words(list.created_at) %></td>
-        <td>  <%= list.status.upcase %></td>
-      </tr> 
-    <% end %>
-  <%end%>
+  <thead class="thead-dark">
+    <tr>
+    <th scope="col">Token no</th>
+    <th scope="col">Phone no</th>
+    <th scope="col">Created </th>
+    <th scope="col">Status</th>
     <% if logged_in?(:Admin) %> 
+    <th>Update Status</th>
+    <th>Delete appointment</th>
+    <% end %>
+    </tr>
+  </thead>
+  <tbody>
+  <% if !logged_in?(:Admin) %> 
+  <% @mylist.each do |list| %>
+    <tr>
+    <td> <%= list.id %> </td>
+    <td>  <%= list.phoneno %></td>
+    <td>  <%= time_ago_in_words(list.created_at) %></td>
+    <td>  <%= list.status.upcase %></td>
+    </tr> 
+  <% end %>
+  <%end%>
+  <% if logged_in?(:Admin) %> 
    <% @tokens.each do |token| %>
-      <tr>
-      <td><%= token.id %></td>
-        <td><%= token.phoneno %></td>
-        <td><%= token.status %>  </td>
-        <td><%= link_to 'Show', token %></td>
-        <td><%= link_to 'Edit', edit_token_path(token) %></td>
-        <td><%= link_to 'Destroy', token, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
+    <tr>
+    <td><%= token.id %></td>
+    <td><%= token.phoneno %></td>
+    <td><%= token.status %>  </td>
+    <td><%= link_to 'Show', token %></td>
+    <td><%= link_to 'Edit', edit_token_path(token) %></td>
+    <td><%= link_to 'Destroy', token, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
 <% end %>
-    </tbody>
-    <% end %>
+  </tbody>
+  <% end %>
   </table>
 </div>
 

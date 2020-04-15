@@ -6,21 +6,21 @@
 
 <table>
   <thead>
-    <tr>
-      <th>Condition</th>
-      <th>Price</th>
-      <th colspan="3"></th>
-    </tr>
+  <tr>
+    <th>Condition</th>
+    <th>Price</th>
+    <th colspan="3"></th>
+  </tr>
   </thead>
 
   <tbody>
-    <% @carcosts.each do |carcost| %>
-      <tr>
-        <td><%= carcost.condition %></td>
-        <td><%= carcost.price %></td>
-        <td><%= link_to 'Edit', edit_car_cost_path(carcost) %></td>
-      </tr>
-    <% end %>
+  <% @carcosts.each do |carcost| %>
+    <tr>
+    <td><%= carcost.condition %></td>
+    <td><%= carcost.price %></td>
+    <td><%= link_to 'Edit', edit_car_cost_path(carcost) %></td>
+    </tr>
+  <% end %>
   </tbody>
 </table>
 

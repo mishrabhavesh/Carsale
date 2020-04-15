@@ -4,21 +4,21 @@
 
 <table>
   <thead>
-    <tr>
-      <th>Name</th>
-      <th colspan="3"></th>
-    </tr>
+  <tr>
+    <th>Name</th>
+    <th colspan="3"></th>
+  </tr>
   </thead>
 
   <tbody>
-    <% @registrationstates.each do |registrationstate| %>
-      <tr>
-        <td><%= registrationstate.name %></td>
-        <td><%= link_to 'Show', registrationstate %></td>
-        <td><%= link_to 'Edit', edit_registration_state_path(registrationstate) %></td>
-        <td><%= link_to 'Destroy', registrationstate, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
+  <% @registrationstates.each do |registrationstate| %>
+    <tr>
+    <td><%= registrationstate.name %></td>
+    <td><%= link_to 'Show', registrationstate %></td>
+    <td><%= link_to 'Edit', edit_registration_state_path(registrationstate) %></td>
+    <td><%= link_to 'Destroy', registrationstate, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
   </tbody>
 </table>
 

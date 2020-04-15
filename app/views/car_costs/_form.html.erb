@@ -1,27 +1,27 @@
 <%= form_with(model: carcost, local: true) do |form| %>
   <% if carcost.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(carcost.errors.count, "error") %> prohibited this carcost from being saved:</h2>
+  <div id="error_explanation">
+    <h2><%= pluralize(carcost.errors.count, "error") %> prohibited this carcost from being saved:</h2>
 
-      <ul>
-        <% carcost.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
+    <ul>
+    <% carcost.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
+  </div>
   <% end %>
 
   <div class="field">
-    <%= form.label :condition %>
-    <%= form.text_field :condition %>
+  <%= form.label :condition %>
+  <%= form.text_field :condition %>
   </div>
 
   <div class="field">
-    <%= form.label :price %>
-    <%= form.text_field :price %>
+  <%= form.label :price %>
+  <%= form.text_field :price %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+  <%= form.submit %>
   </div>
 <% end %>
