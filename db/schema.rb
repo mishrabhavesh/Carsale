@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_09_134659) do
+ActiveRecord::Schema.define(version: 2020_04_15_123007) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 2020_04_09_134659) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "carcosts", force: :cascade do |t|
+  create_table "car_costs", force: :cascade do |t|
     t.string "condition"
     t.string "price"
     t.datetime "created_at", precision: 6, null: false
@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 2020_04_09_134659) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "kilometerdrivens", force: :cascade do |t|
+  create_table "kilometer_drivens", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -61,13 +61,13 @@ ActiveRecord::Schema.define(version: 2020_04_09_134659) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "registrationstates", force: :cascade do |t|
+  create_table "registration_states", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "registrationyears", force: :cascade do |t|
+  create_table "registration_years", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

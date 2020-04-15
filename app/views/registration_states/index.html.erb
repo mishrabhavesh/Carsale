@@ -15,7 +15,7 @@
       <tr>
         <td><%= registrationstate.name %></td>
         <td><%= link_to 'Show', registrationstate %></td>
-        <td><%= link_to 'Edit', edit_registrationstate_path(registrationstate) %></td>
+        <td><%= link_to 'Edit', edit_registration_state_path(registrationstate) %></td>
         <td><%= link_to 'Destroy', registrationstate, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
@@ -24,4 +24,4 @@
 
 <br>
 
-<%= link_to 'New Registrationstate', new_registrationstate_path %>
+<%= link_to 'New Registrationstate', new_registration_state_path %>

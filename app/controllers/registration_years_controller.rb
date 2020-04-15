@@ -1,11 +1,11 @@
-class RegistrationyearsController < ApplicationController
-  before_action :set_registrationyear, only: [:show, :edit, :update, :destroy]
+class RegistrationYearsController < ApplicationController
+  before_action :set_registration_year, only: [:show, :edit, :update, :destroy]
   access except: [:show, :edit, :create, :update, :new, :destroy, :index], user: {except:[:show, :edit, :create, :update, :new, :destroy, :index]}, Admin: :all ,Buyer: {except:[:show, :edit, :create, :update, :new, :destroy, :index]}, Seller: {except:[:show, :edit, :create, :update, :new, :destroy, :index]}
 
   # GET /registrationyears
   # GET /registrationyears.json
   def index
-    @registrationyears = Registrationyear.all
+    @registrationyears = RegistrationYear.all
   end
 
   # GET /registrationyears/1
@@ -15,7 +15,7 @@ class RegistrationyearsController < ApplicationController
 
   # GET /registrationyears/new
   def new
-    @registrationyear = Registrationyear.new
+    @registrationyear = RegistrationYear.new
   end
 
   # GET /registrationyears/1/edit
@@ -25,11 +25,11 @@ class RegistrationyearsController < ApplicationController
   # POST /registrationyears
   # POST /registrationyears.json
   def create
-    @registrationyear = Registrationyear.new(registrationyear_params)
+    @registrationyear = RegistrationYear.new(registration_year_params)
 
     respond_to do |format|
       if @registrationyear.save
-        format.html { redirect_to @registrationyear, notice: 'Registrationyear was successfully created.' }
+        format.html { redirect_to registration_years_path, notice: 'Registrationyear was successfully created.' }
         format.json { render :show, status: :created, location: @registrationyear }
       else
         format.html { render :new }
@@ -42,8 +42,8 @@ class RegistrationyearsController < ApplicationController
   # PATCH/PUT /registrationyears/1.json
   def update
     respond_to do |format|
-      if @registrationyear.update(registrationyear_params)
-        format.html { redirect_to @registrationyear, notice: 'Registrationyear was successfully updated.' }
+      if @registrationyear.update(registration_year_params)
+        format.html { redirect_to registration_years_path, notice: 'Registrationyear was successfully updated.' }
         format.json { render :show, status: :ok, location: @registrationyear }
       else
         format.html { render :edit }
@@ -57,19 +57,19 @@ class RegistrationyearsController < ApplicationController
   def destroy
     @registrationyear.destroy
     respond_to do |format|
-      format.html { redirect_to registrationyears_url, notice: 'Registrationyear was successfully destroyed.' }
+      format.html { redirect_to registration_years_url, notice: 'Registrationyear was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_registrationyear
-      @registrationyear = Registrationyear.find(params[:id])
+    def set_registration_year
+      @registrationyear = RegistrationYear.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
-    def registrationyear_params
-      params.require(:registrationyear).permit(:name)
+    def registration_year_params
+      params.require(:registration_year).permit(:name)
     end
 end

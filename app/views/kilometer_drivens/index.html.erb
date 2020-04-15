@@ -15,7 +15,7 @@
       <tr>
         <td><%= kilometerdriven.name %></td>
         <td><%= link_to 'Show', kilometerdriven %></td>
-        <td><%= link_to 'Edit', edit_kilometerdriven_path(kilometerdriven) %></td>
+        <td><%= link_to 'Edit', edit_kilometer_driven_path(kilometerdriven) %></td>
         <td><%= link_to 'Destroy', kilometerdriven, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
@@ -24,4 +24,4 @@
 
 <br>
 
-<%= link_to 'New Kilometerdriven', new_kilometerdriven_path %>
+<%= link_to 'New Kilometerdriven', new_kilometer_driven_path %>

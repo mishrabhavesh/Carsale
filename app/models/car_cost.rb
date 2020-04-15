@@ -1,4 +1,4 @@
-class Carcost < ApplicationRecord
+class CarCost < ApplicationRecord
     validates :condition, presence: true
     validates :price, presence: true
 

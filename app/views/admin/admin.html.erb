@@ -14,17 +14,17 @@
       <%= link_to 'Add Brand', new_brand_path, class: "btn btn-info" %>
     </div>
      <div class="card my-3">
-      <%= link_to 'Add registration state', new_registrationstate_path, class: "btn btn-info" %>
+      <%= link_to 'Add registration state', new_registration_state_path, class: "btn btn-info" %>
     </div>
      <div class="card my-3">
-      <%= link_to 'Add Kilometer Driven', new_kilometerdriven_path, class: "btn btn-info" %>
+      <%= link_to 'Add Kilometer Driven', new_kilometer_driven_path, class: "btn btn-info" %>
     </div>
         
-      <% if Carcost.last.nil? %>
-        <%= link_to 'You need to set car cost condition first', new_carcost_path, class: "btn btn-info" %>
+      <% if CarCost.last.nil? %>
+        <%= link_to 'You need to set car cost condition first', new_car_cost_path, class: "btn btn-info" %>
       <% else %>      
     <div class="card my-3">
-      <%= link_to 'Update Car cost condition', carcosts_path, class: "btn btn-info" %>
+      <%= link_to 'Update Car cost condition', car_costs_path, class: "btn btn-info" %>
     </div>
     <%end%>
   </div>

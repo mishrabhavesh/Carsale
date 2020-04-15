@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
   resources :locations
-  resources :carcosts
+  resources :car_costs
   resources :tokens
   get 'admin/admin'
   resources :models
-  resources :kilometerdrivens
+  resources :kilometer_drivens
   resources :variants
   get 'search_city' , to: 'sellers#search_city'
   get 'search_brand', to: 'sellers#search_brand'
@@ -14,8 +14,9 @@ Rails.application.routes.draw do
   get 'search_kilometer', to: 'sellers#search_kilometer_driven'
   get 'search_model', to: 'sellers#search_model'
 
-  resources :registrationstates
-  resources :registrationyears
+  resources :registration_states
+  
+  resources :registration_years
   resources :brands
   resources :cities
   resources :sellers
