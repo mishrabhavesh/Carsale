@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_15_123007) do
+ActiveRecord::Schema.define(version: 2020_04_15_183156) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 2020_04_15_123007) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["name"], name: "index_brands_on_name"
   end
 
   create_table "car_costs", force: :cascade do |t|
@@ -38,12 +39,14 @@ ActiveRecord::Schema.define(version: 2020_04_15_123007) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["name"], name: "index_cities_on_name"
   end
 
   create_table "kilometer_drivens", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["name"], name: "index_kilometer_drivens_on_name"
   end
 
   create_table "locations", force: :cascade do |t|
@@ -59,18 +62,21 @@ ActiveRecord::Schema.define(version: 2020_04_15_123007) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["name"], name: "index_models_on_name"
   end
 
   create_table "registration_states", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["name"], name: "index_registration_states_on_name"
   end
 
   create_table "registration_years", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["name"], name: "index_registration_years_on_name"
   end
 
   create_table "sellers", force: :cascade do |t|
@@ -117,6 +123,7 @@ ActiveRecord::Schema.define(version: 2020_04_15_123007) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["name"], name: "index_variants_on_name"
   end
 
 end
