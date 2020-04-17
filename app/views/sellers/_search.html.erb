@@ -21,9 +21,9 @@
         <td><%= seller.city.name %></td>
         <td><%= seller.model.name %></td>
         <td><%= seller.brand.name %></td>
-        <td><%= seller.kilometerdriven.name %></td>
-        <td><%= seller.registrationyear.name %></td>
-        <td><%= seller.registrationstate.name %></td>
+        <td><%= seller.kilometer_driven.name %></td>
+        <td><%= seller.registration_year.name %></td>
+        <td><%= seller.registration_state.name %></td>
         <td><%= seller.variant.name %></td>
          <% if logged_in?(:Admin)%>
          <td><%= link_to 'Change status', edit_token_path(seller) ,class: "nav-link  btn btn-info p-1 " %></td>

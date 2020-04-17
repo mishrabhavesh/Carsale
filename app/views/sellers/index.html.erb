@@ -2,35 +2,5 @@
 <h1 align="center" class=" card-header my-4">Buy Car</h1>
 
 <%= render 'shared/category_search' %>
-<!--
-<table>
-  <thead>
-  <tr>
-    <th>Name</th>
-    <th colspan="3"></th>
-  </tr>
-  </thead>
-  <tbody>
-  <% @sellers.each do |seller| %>
-    <tr>
-    <td><%= seller.city.name %></td>
-    <td><%= seller.model.name %></td>
-    <td><%= seller.brand.name %></td>
-    <td><%= seller.kilometerdriven.name %></td>
-    <td><%= seller.registrationyear.name %></td>
-    <td><%= seller.registrationstate.name %></td>
-    <td><%= seller.variant.name %></td>
-     <% if logged_in?(:Admin)%>
-     <td><%= link_to 'Change status', edit_token_path(seller) %></td>
-    <td><%= link_to 'Show', seller %></td>
-    <td><%= link_to 'Edit', edit_seller_path(seller) %></td>
-    <td><%= link_to 'Destroy', seller, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    <%end%>
-    </tr>
-  <% end %>
-  </tbody>
-</table>
-<br>
--->
 
 <%= render 'sellers/search' %>

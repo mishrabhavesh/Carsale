@@ -24,60 +24,44 @@ class SellersController < ApplicationController
   def edit
   end
 
+  # category search
   def search_model
-    if params[:seller] and params[:seller][:model_id]
-      @sellers = Seller.where(model_id: params[:seller][:model_id])
-    end
+      @sellers = Seller.car_model( params[:seller][:model_id])
   end
 
   def search_city
-    if params[:seller] and params[:seller][:city_id]
-      @sellers = Seller.where(city_id: params[:seller][:city_id])
-    end
+      @sellers = Seller.car_city( params[:seller][:city_id])
   end
 
   def search_brand
-    if params[:seller] and params[:seller][:brand_id]
-      @sellers = Seller.where(brand_id: params[:seller][:brand_id])
-    end
+      @sellers = Seller.car_brand( params[:seller][:brand_id])
   end
 
   def search_reg_year
-    if params[:seller] and params[:seller][:registrationyear_id]
-      @sellers = Seller.where(registrationyear_id: params[:seller][:registrationyear_id])
-    end
+      @sellers = Seller.car_reg_year( params[:seller][:registration_year_id])
   end
   
   def search_kilometer_driven
-    if params[:seller] and params[:seller][:kilometerdriven_id]
-      @sellers = Seller.where(kilometerdriven_id: params[:seller][:kilometerdriven_id])
-    end
+      @sellers = Seller.car_kilometer_driven( params[:seller][:kilometer_driven_id])
   end
 
   def search_variant
-    if params[:seller] and params[:seller][:variant_id]
-      @sellers = Seller.where(variant_id: params[:seller][:variant_id])
-    end
+      @sellers = Seller.car_variant( params[:seller][:variant_id])
   end
 
   def search_reg_state
-    if params[:seller] and params[:seller][:registrationstate_id]
-      @sellers = Seller.where(registrationstate_id: params[:seller][:registrationstate_id])
-    end
+      @sellers = Seller.car_reg_state( params[:seller][:registration_state_id])
   end
-
-  
-
-
-  
 
   # POST /sellers
   # POST /sellers.json
   def create
     @seller = Seller.new(seller_params)
     @seller.user_id = current_user.id
+    
     respond_to do |format|
       if @seller.save
+        
         format.html { redirect_to new_token_path, notice: 'Seller was successfully created.' }
       else
         format.html { render :new }
@@ -90,7 +74,7 @@ class SellersController < ApplicationController
   def update
     respond_to do |format|
       if @seller.update(seller_params)
-        format.html { redirect_to @seller, notice: 'Seller was successfully updated.' }
+        format.html { redirect_to @seller, notice: 'Post created.' }
         format.json { render :show, status: :ok, location: @seller }
       else
         format.html { render :edit }
@@ -118,6 +102,6 @@ class SellersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def seller_params
-      params.require(:seller).permit(:city_id, :brand_id, :model_id, :registrationyear_id, :registrationstate_id, :variant_id, :kilometerdriven_id,:token_id, :user_id)
+      params.require(:seller).permit(:city_id, :brand_id, :model_id, :registration_year_id, :registration_state_id, :variant_id, :kilometer_driven_id,:token_id, :user_id)
     end
 end
