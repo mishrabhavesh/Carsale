@@ -10,16 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_15_200038) do
+ActiveRecord::Schema.define(version: 2020_04_22_103730) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "brandmodels", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
 
   create_table "brands", force: :cascade do |t|
     t.string "name"
@@ -33,6 +27,8 @@ ActiveRecord::Schema.define(version: 2020_04_15_200038) do
     t.string "price"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["condition"], name: "index_car_costs_on_condition"
+    t.index ["price"], name: "index_car_costs_on_price"
   end
 
   create_table "cities", force: :cascade do |t|
@@ -56,6 +52,7 @@ ActiveRecord::Schema.define(version: 2020_04_15_200038) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id"
+    t.index ["address"], name: "index_locations_on_address"
   end
 
   create_table "models", force: :cascade do |t|
@@ -80,7 +77,6 @@ ActiveRecord::Schema.define(version: 2020_04_15_200038) do
   end
 
   create_table "sellers", force: :cascade do |t|
-    t.string "name"
     t.integer "city_id"
     t.integer "brand_id"
     t.integer "model_id"
@@ -90,7 +86,6 @@ ActiveRecord::Schema.define(version: 2020_04_15_200038) do
     t.integer "kilometer_driven_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "phoneno"
     t.integer "user_id"
   end
 
@@ -100,6 +95,7 @@ ActiveRecord::Schema.define(version: 2020_04_15_200038) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "status", default: "processing"
     t.integer "user_id"
+    t.index ["phoneno"], name: "index_tokens_on_phoneno"
   end
 
   create_table "users", force: :cascade do |t|

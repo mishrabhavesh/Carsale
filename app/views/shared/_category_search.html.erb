@@ -1,3 +1,11 @@
+<%if logged_in?(:Buyer, :Admin)%>
+    <%= form_tag sellers_path, method: :get do %>
+      <p>
+        <%= text_field_tag :search, params[:search], placeholder: "search" %>
+        <%= button_tag "Search", name: nil, class: "btn btn-dark" %>
+      </p>
+<%end%>
+    <% end %>
 <%= stylesheet_link_tag 'search', media: 'all', 'data-turbolinks-track': 'reload' %>
   <div class=" d-flex">
   <div class="d-flex flex-column justify-content-end align-items-start ">
