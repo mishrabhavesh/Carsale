@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   get 'search_model', to: 'sellers#search_model'
 
   resources :registration_states
+  resources :searches
   
   resources :registration_years
   resources :brands

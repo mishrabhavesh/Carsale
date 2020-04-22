@@ -2,12 +2,15 @@ class SellersController < ApplicationController
   before_action :set_seller, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
   access except: [:show, :edit, :create, :update, :new, :destroy, :index], user: {except:[:show, :edit, :create, :update, :new, :destroy, :index]}, Admin: :all ,Buyer: {except:[:new]}, Seller: {except:[:destroy,:index]}
-
+  include SellersHelper
   # GET /sellers
   # GET /sellers.json
   def index
-    
-    @sellers = Seller.all
+    if params[:search].present?
+    @sellers =   search(params[:search])
+    else
+      @sellers = Seller.all
+    end
   end 
 
   # GET /sellers/1

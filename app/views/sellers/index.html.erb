@@ -1,5 +1,13 @@
 <p id="notice"><%= notice %></p>
 <h1 align="center" class=" card-header my-4">Buy Car</h1>
+ <%if logged_in?(:Buyer, :Admin)%>
+    <%= form_tag sellers_path, method: :get do %>
+      <p>
+        <%= text_field_tag :search, params[:search], placeholder: "search" %>
+        <%= button_tag "Search", name: nil, class: "btn btn-dark" %>
+      </p>
+      <%end%>
+    <% end %>
 
 <%= render 'shared/category_search' %>
 
