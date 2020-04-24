@@ -77,6 +77,7 @@ ActiveRecord::Schema.define(version: 2020_04_22_103730) do
   end
 
   create_table "sellers", force: :cascade do |t|
+    t.string "name"
     t.integer "city_id"
     t.integer "brand_id"
     t.integer "model_id"
@@ -86,7 +87,10 @@ ActiveRecord::Schema.define(version: 2020_04_22_103730) do
     t.integer "kilometer_driven_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "phoneno"
     t.integer "user_id"
+    t.index ["brand_id"], name: "index_sellers_on_brand_id"
+    t.index ["city_id"], name: "index_sellers_on_city_id"
   end
 
   create_table "tokens", force: :cascade do |t|
