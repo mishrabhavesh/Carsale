@@ -1,22 +1,15 @@
+
+
 <%= form_with(model: kilometerdriven, local: true) do |form| %>
-  <% if kilometerdriven.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(kilometerdriven.errors.count, "error") %> prohibited this kilometerdriven from being saved:</h2>
+   <%= render 'shared/error', obj: @kilometerdriven %>
 
-      <ul>
-        <% kilometerdriven.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+  <div class="field card-body">
+  <%= form.label :name  %>
+  <%= form.text_field :name, placeholder: 'Enter City Name' %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="actions text-center">
+  <%= form.submit class: 'btn btn-success' %>
   </div>
 <% end %>

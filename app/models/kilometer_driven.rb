@@ -1,10 +1,10 @@
 class KilometerDriven < ApplicationRecord
   validates :name, presence: true
-  validates_uniqueness_of :name, on: :create, message: "must be unique"
+    validates :name, uniqueness: { case_sensitive: false }
    before_save :upcase_fields
 
   def upcase_fields
   self.name.upcase!
-end
+	end
 
 end

@@ -4,3 +4,10 @@
 
 <%= link_to 'Show', @kilometerdriven %> |
 <%= link_to 'Back', kilometerdrivens_path %>
+
+<div class="text-center">
+	<h1 class="card-header">Edit Kilometer Driven</h1>
+	<%= render 'form', kilometerdriven: @kilometerdriven %>
+	<%= link_to 'Show', @city ,class: 'btn btn-warning m-4'%> 
+	<%= link_to 'Back', cities_path, class: 'btn btn-dark m-4' %>
+</div>

@@ -1,22 +1,10 @@
 <%= form_with(model: brand, local: true) do |form| %>
-  <% if brand.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(brand.errors.count, "error") %> prohibited this brand from being saved:</h2>
-
-    <ul>
-    <% brand.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-    </ul>
+  <%= render 'shared/error', obj: brand %>
+  <div class="field card-body">
+    <%= form.label :name  %>
+    <%= form.text_field :name, placeholder: 'Enter Model Name' %>
   </div>
-  <% end %>
-
-  <div class="field">
-  <%= form.label :name %>
-  <%= form.text_field :name %>
-  </div>
-
-  <div class="actions"></div>
-  <%= form.submit %>
+  <div class="actions text-center">
+    <%= form.submit class: 'btn btn-success' %>
   </div>
 <% end %>

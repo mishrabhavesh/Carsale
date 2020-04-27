@@ -3,7 +3,7 @@ class Location < ApplicationRecord
   geocoded_by :address
   after_validation :geocode
   belongs_to :user
-  validates_uniqueness_of :address, on: :create, message: "must be unique"
+    validates :address, uniqueness: { case_sensitive: false }
  before_save :upcase_fields
 
   def upcase_fields

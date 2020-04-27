@@ -1,22 +1,13 @@
 <%= form_with(model: city, local: true) do |form| %>
-  <% if city.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(city.errors.count, "error") %> prohibited this city from being saved:</h2>
+   <%= render 'shared/error', obj: @city %>
 
-    <ul>
-    <% city.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-    </ul>
-  </div>
-  <% end %>
 
-  <div class="field">
-  <%= form.label :name %>
-  <%= form.text_field :name %>
+  <div class="field card-body">
+  <%= form.label :name  %>
+  <%= form.text_field :name, placeholder: 'Enter City Name' %>
   </div>
 
-  <div class="actions">
-  <%= form.submit %>
+  <div class="actions text-center">
+  <%= form.submit class: 'btn btn-success' %>
   </div>
 <% end %>
