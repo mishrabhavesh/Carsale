@@ -10,43 +10,43 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_22_103730) do
+ActiveRecord::Schema.define(version: 2020_04_27_095625) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "brands", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["name"], name: "index_brands_on_name"
+    t.index ["name"], name: "index_brands_on_name", unique: true
   end
 
   create_table "car_costs", force: :cascade do |t|
-    t.string "condition"
-    t.string "price"
+    t.string "condition", null: false
+    t.string "price", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["condition"], name: "index_car_costs_on_condition"
-    t.index ["price"], name: "index_car_costs_on_price"
+    t.index ["condition"], name: "index_car_costs_on_condition", unique: true
+    t.index ["price"], name: "index_car_costs_on_price", unique: true
   end
 
   create_table "cities", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["name"], name: "index_cities_on_name"
+    t.index ["name"], name: "index_cities_on_name", unique: true
   end
 
   create_table "kilometer_drivens", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["name"], name: "index_kilometer_drivens_on_name"
+    t.index ["name"], name: "index_kilometer_drivens_on_name", unique: true
   end
 
   create_table "locations", force: :cascade do |t|
-    t.string "address"
+    t.string "address", null: false
     t.float "latitude"
     t.float "longitude"
     t.datetime "created_at", precision: 6, null: false
@@ -56,45 +56,42 @@ ActiveRecord::Schema.define(version: 2020_04_22_103730) do
   end
 
   create_table "models", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["name"], name: "index_models_on_name"
+    t.index ["name"], name: "index_models_on_name", unique: true
   end
 
   create_table "registration_states", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["name"], name: "index_registration_states_on_name"
+    t.index ["name"], name: "index_registration_states_on_name", unique: true
   end
 
   create_table "registration_years", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["name"], name: "index_registration_years_on_name"
+    t.index ["name"], name: "index_registration_years_on_name", unique: true
   end
 
   create_table "sellers", force: :cascade do |t|
-    t.string "name"
-    t.integer "city_id"
-    t.integer "brand_id"
-    t.integer "model_id"
-    t.integer "registration_year_id"
-    t.integer "registration_state_id"
-    t.integer "variant_id"
-    t.integer "kilometer_driven_id"
+    t.integer "city_id", null: false
+    t.integer "brand_id", null: false
+    t.integer "model_id", null: false
+    t.integer "registration_year_id", null: false
+    t.integer "registration_state_id", null: false
+    t.integer "variant_id", null: false
+    t.integer "kilometer_driven_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "phoneno"
     t.integer "user_id"
-    t.index ["brand_id"], name: "index_sellers_on_brand_id"
-    t.index ["city_id"], name: "index_sellers_on_city_id"
   end
 
   create_table "tokens", force: :cascade do |t|
-    t.string "phoneno"
+    t.string "phoneno", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "status", default: "processing"
@@ -120,10 +117,10 @@ ActiveRecord::Schema.define(version: 2020_04_22_103730) do
   end
 
   create_table "variants", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["name"], name: "index_variants_on_name"
+    t.index ["name"], name: "index_variants_on_name", unique: true
   end
 
   add_foreign_key "locations", "users"
