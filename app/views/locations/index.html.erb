@@ -13,15 +13,15 @@
     <%= link_to 'Create New Branch', new_location_path, class: "btn btn-info btn-lg" %>
   </div>
   <table class="table">
-  <thead class="thead-light">
-    <tr>
-    <th scope="col">Address</th>
-    <th scope="col">Latitude</th>
-    <th scope="col">Longitude</th>
-    <th colspan="col">Show</th>
-    <th colspan="col" >Edit</th>
-    </tr>
-  </thead>
+    <thead class="thead-light">
+      <tr>
+      <th scope="col">Address</th>
+      <th scope="col">Latitude</th>
+      <th scope="col">Longitude</th>
+      <th colspan="col">Show</th>
+      <th colspan="col" >Edit</th>
+      </tr>
+    </thead>
   <tbody>
     <% @locations.each do |location| %>
     <tr>

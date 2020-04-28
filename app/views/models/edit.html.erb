@@ -1,6 +1,8 @@
-<h1>Editing Model</h1>
 
+
+<div class="text-center">
+<h1 class="card-header">Edit Model</h1>
 <%= render 'form', model: @model %>
-
-<%= link_to 'Show', @model %> |
-<%= link_to 'Back', models_path %>
+	<%= link_to 'Show', @model ,class: 'btn btn-warning m-4'%> 
+	<%= link_to 'Back', models_path, class: 'btn btn-dark m-4' %>
+</div>

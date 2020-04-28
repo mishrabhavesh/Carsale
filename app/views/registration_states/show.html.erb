@@ -1,9 +1,10 @@
-<p id="notice"><%= notice %></p>
+<div class="text-center">
+	<p id="notice"><%= notice %></p>
+	<p>
+	  <strong>Name:</strong>
+	  <%= @registrationstate.name %>
+	</p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @registrationstate.name %>
-</p>
-
-<%= link_to 'Edit', edit_registrationstate_path(@registrationstate) %> |
-<%= link_to 'Back', registrationstates_path %>
+	<%= link_to 'Edit', edit_registration_state_path(@registrationstate), class: "btn btn-warning m-4" %> 
+	<%= link_to 'Back', registration_states_path , class: 'btn btn-dark m-4' %>
+</div>

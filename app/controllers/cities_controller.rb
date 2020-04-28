@@ -34,7 +34,7 @@ class CitiesController < ApplicationController
   def update
     respond_to do |format|
       if @city.update(city_params)
-        format.html { redirect_to @city, notice: 'City was successfully updated.' }
+        format.html { redirect_to cities_path, notice: 'City was successfully updated.' }
       else
         format.html { render :edit }
       end

@@ -1,27 +1,29 @@
-<p id="notice"><%= notice %></p>
+<h1 class="text-center card-header">Kilometerdrivens index </h1>
 
-<h1>Kilometerdrivens</h1>
-
-<table>
-  <thead>
-  <tr>
-    <th>Name</th>
-    <th colspan="3"></th>
-  </tr>
-  </thead>
-
-  <tbody>
-  <% @kilometerdrivens.each do |kilometerdriven| %>
-    <tr>
-    <td><%= kilometerdriven.name %></td>
-    <td><%= link_to 'Show', kilometerdriven %></td>
-    <td><%= link_to 'Edit', edit_kilometer_driven_path(kilometerdriven) %></td>
-    <td><%= link_to 'Destroy', kilometerdriven, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    </tr>
-  <% end %>
-  </tbody>
-</table>
 
 <br>
 
-<%= link_to 'New Kilometerdriven', new_kilometer_driven_path %>
+<div class="card-header text-center">
+  <%= link_to 'Add kilometerDriven', new_kilometer_driven_path , class: 'btn btn-primary my-4' %>
+</div>
+
+<table class="table">
+  <thead class="thead-dark">
+  <tr>
+    <th>Name</th>
+    <th>Show</th>
+    <th>Edit</th>
+    <th>Destroy</th>
+  </tr>
+  </thead>
+  <tbody>
+    <% @kilometerdrivens.each do |kilometerdriven| %>
+      <tr>
+      <td><%= kilometerdriven.name  %></td>
+      <td><%= link_to 'Show', kilometerdriven , class: 'btn btn-info ' %></td>
+      <td><%= link_to 'Edit', edit_kilometer_driven_path(kilometerdriven), class: 'btn btn-warning '  %></td>
+      <td><%= link_to 'Destroy', kilometerdriven, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger '  %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

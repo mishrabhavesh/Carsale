@@ -21,7 +21,7 @@ class ModelsController < ApplicationController
 
     respond_to do |format|
       if @model.save
-        format.html { redirect_to @model, notice: 'Model was successfully created.' }
+        format.html { redirect_to models_path, notice: 'Model was successfully created.' }
       else
         format.html { render :new }
       end
@@ -31,7 +31,7 @@ class ModelsController < ApplicationController
   def update
     respond_to do |format|
       if @model.update(model_params)
-        format.html { redirect_to @model, notice: 'Model was successfully updated.' }
+        format.html { redirect_to models_path, notice: 'Model was successfully updated.' }
       else
         format.html { render :edit }
       end

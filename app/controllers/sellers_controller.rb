@@ -58,8 +58,7 @@ class SellersController < ApplicationController
 		
 		respond_to do |format|
 			if @seller.save
-				
-				format.html { redirect_to new_token_path, notice: 'Seller was successfully created.' }
+				format.html { redirect_to new_token_path, notice: 'Add was sucessfully posted.' }
 			else
 				format.html { render :new }
 			end
@@ -70,7 +69,7 @@ class SellersController < ApplicationController
 	def update
 		respond_to do |format|
 			if @seller.update(seller_params)
-				format.html { redirect_to @seller, notice: 'Post created.' }
+				format.html { redirect_to @seller, notice: 'post updated.' }
 			else
 				format.html { render :edit }
 			end

@@ -23,7 +23,7 @@ class VariantsController < ApplicationController
 
     respond_to do |format|
       if @variant.save
-        format.html { redirect_to @variant, notice: 'Variant was successfully created.' }
+        format.html { redirect_to variants_path, notice: 'Variant was successfully created.' }
       else
         format.html { render :new }
       end
@@ -34,7 +34,7 @@ class VariantsController < ApplicationController
   def update
     respond_to do |format|
       if @variant.update(variant_params)
-        format.html { redirect_to @variant, notice: 'Variant was successfully updated.' }
+        format.html { redirect_to variants_path, notice: 'Variant was successfully updated.' }
       else
         format.html { render :edit }
       end

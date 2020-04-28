@@ -1,19 +1,8 @@
 <%= form_with(model: location, local: true) do |form| %>
-  <% if location.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(location.errors.count, "error") %> prohibited this location from being saved:</h2>
-
-    <ul>
-    <% location.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-    </ul>
-  </div>
-  <% end %>
-
-  <div class="field">
-  <%= form.label :address %>
-  <%= form.text_field :address %>
+  <%= render 'shared/error', obj: @location %>
+  <div class="field card-body">
+    <%= form.label :address %>
+    <%= form.text_field :address , placeholder: 'Enter Branch Name' %>
   </div>
 
   <div class="actions">
