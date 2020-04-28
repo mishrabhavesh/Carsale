@@ -1,6 +1,6 @@
 class TokensController < ApplicationController
   before_action :set_token, only: [:show, :edit, :update, :destroy]
-  access except: [:show, :edit, :create, :update, :new, :destroy, :index], user: {except:[:show, :edit, :create, :update, :new, :destroy, :index]}, Admin: :all ,Buyer: {except:[:show, :edit, :create, :update, :new, :destroy, :index]}, Seller: {except:[:destroy]}
+  access except: [:show, :edit, :create, :update, :new, :destroy, :index], user: {except:[:show, :edit, :create, :update, :new, :destroy, :index]}, Admin: :all ,Buyer: {except:[:show, :edit, :create, :update, :new, :destroy, :index]}, Seller: {except:[:destroy]}, message: "Only Admin can perform this"
 
   def index
     @mylist = current_user.tokens
