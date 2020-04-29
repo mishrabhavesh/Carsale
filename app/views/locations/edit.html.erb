@@ -1,13 +1,6 @@
 <h1>Editing Location</h1>
-
-<%= render 'form', location: @location %>
-
-<%= link_to 'Show', @location %> |
-<%= link_to 'Back', locations_path %>
-
 <div class="text-center">
 	<h1 class="card-header">Edit Location</h1>
 	<%= render 'form', location: @location %>
-	<%= link_to 'Show', @location ,class: 'btn btn-warning m-4'%> 
 	<%= link_to 'Back', locations_path, class: 'btn btn-dark m-4' %>
 </div>

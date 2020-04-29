@@ -10,11 +10,12 @@
       <th scope="col">Variant</th>
       <% if logged_in?(:Admin)%>
       <th scope="col">Appointment status</th>
+      <th scope="col">Delete Post</th>
       <%end%>
     </tr>
   </thead>
   <tbody>
-    <% @sellers.each do |seller| %>
+    <% @my_add.each do |seller| %>
       <tr>
         <td><%= seller.city.name %></td>
         <td><%= seller.model.name %></td>
@@ -25,6 +26,7 @@
         <td><%= seller.variant.name %></td>
         <% if logged_in?(:Admin)%>
           <td><%= link_to 'Change status', edit_token_path(seller) ,class: "nav-link  btn btn-info p-1 " %></td>
+          <td><%= link_to 'Destroy', seller, method: :delete, data: { confirm: 'Are you sure?' },class: "nav-link  btn btn-info rounded-pill" %></td>
         <%end%>
       </tr>
     <% end %>

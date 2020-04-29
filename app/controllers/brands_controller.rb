@@ -1,15 +1,9 @@
 class BrandsController < ApplicationController
-  before_action :set_brand, only: [:show, :edit, :update, :destroy]
-  access except: [:show, :edit, :create, :update, :new, :destroy, :index], user: {except:[:show, :edit, :create, :update, :new, :destroy, :index]}, Admin: :all ,Buyer: {except:[:show, :edit, :create, :update, :new, :destroy, :index]}, Seller: {except:[:show, :edit, :create, :update, :new, :destroy, :index]}, message: "Only Admin can perform this"
-
-
+  before_action :set_brand, only: [:edit, :update, :destroy]
+  access except: [ :edit, :create, :update, :new, :destroy, :index], user: {except:[ :edit, :create, :update, :new, :destroy, :index]}, Admin: :all ,Buyer: {except:[:edit, :create, :update, :new, :destroy, :index]}, Seller: {except:[:edit, :create, :update, :new, :destroy, :index]}, message: "Only Admin can perform this"
   def index
     @brands = Brand.all
   end
-
-  def show
-  end
-
 
   def new
     @brand = Brand.new

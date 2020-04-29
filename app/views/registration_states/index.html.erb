@@ -1,8 +1,5 @@
 <h1 class="text-center card-header">RegistrationState index </h1>
 
-
-<br>
-
 <div class="card-header text-center">
   <%= link_to 'Add new Registrationstate', new_registration_state_path , class: 'btn btn-primary my-4' %>
 </div>
@@ -11,7 +8,6 @@
   <thead class="thead-dark">
     <tr>
       <th>Name</th>
-      <th>Show</th>
       <th>Edit</th>
       <th>Destroy</th>
     </tr>
@@ -19,10 +15,9 @@
   <tbody>
   <% @registrationstates.each do |registrationstate| %>
     <tr>
-    <td><%= registrationstate.name  %></td>
-    <td><%= link_to 'Show', registrationstate , class: 'btn btn-info ' %></td>
-    <td><%= link_to 'Edit', edit_registration_state_path(registrationstate), class: 'btn btn-warning '  %></td>
-    <td><%= link_to 'Destroy', registrationstate, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger '  %></td>
+      <td><%= registrationstate.name  %></td>
+      <td><%= link_to 'Edit', edit_registration_state_path(registrationstate), class: 'btn btn-warning '  %></td>
+      <td><%= link_to 'Destroy', registrationstate, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger '  %></td>
     </tr>
   <% end %>
   </tbody>

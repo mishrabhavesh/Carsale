@@ -13,10 +13,10 @@
     <% x= @token.id%>
       <% x = (x % 4 + 1) %>
       <%cost=  CarCost.find(x) %>
-      <h2 class="h3">Your car cost price is </h2>
-      <%= cost.price %> <br>
-       <h2 class="h3">Your car condition is </h2>
-      <%= cost.condition %>
+      <h2 class="h3">Your car condition is </h2>
+      <%= cost.condition %> <br>
+      <h2>Your car cost is</h2>
+      <%= cost.price %>
     </div>
     <div class="text-center my-4">
     <%= link_to 'Back to Home', root_path, class: "btn btn-dark btn-lg rounded-pill" %>

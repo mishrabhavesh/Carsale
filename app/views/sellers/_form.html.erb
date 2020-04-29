@@ -3,43 +3,42 @@
   <% if seller.errors.any? %>
   <div id="error_explanation">
     <h2><%= pluralize(seller.errors.count, "error") %> prohibited this seller from being saved:</h2>
-
     <ul>
-    <% seller.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
+      <% seller.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
     </ul>
   </div>
   <% end %>
   <div class="row">
-  <div class="col-md-6">
-    <div class="field ">
-    <%= collection_select(:seller, :city_id, City.all, :id, :name, {},  {class: 'form-control '}) %>
+    <div class="col-md-6">
+      <div class="field ">
+        <%= collection_select(:seller, :city_id, City.all, :id, :name, {},  {class: 'form-control '}) %>
+      </div>
+      <div class="field">
+        <%= collection_select(:seller, :brand_id, Brand.all, :id, :name, {}, {class: 'form-control '}) %>
+      </div>
+      <div class="field">
+        <%= collection_select(:seller, :model_id, Model.all, :id, :name, {}, {class: 'form-control '}) %>
+      </div>
+      <div class="field">
+        <%= collection_select(:seller, :registration_year_id, RegistrationYear.all, :id, :name, {}, {class:'form-control '}) %>
+      </div>
     </div>
-    <div class="field">
-    <%= collection_select(:seller, :brand_id, Brand.all, :id, :name, {}, {class: 'form-control '}) %>
+    <div class="col-md-6">  
+      <div class="field">
+        <%= collection_select(:seller, :registration_state_id, RegistrationState.all, :id, :name, {}, {class: 'form-control '}) %>
+      </div>
+      <div class="field">
+        <%= collection_select(:seller, :variant_id, Variant.all, :id, :name, {}, {class: 'form-control '}) %>
+      </div>
+      <div class="field">
+        <%= collection_select(:seller, :kilometer_driven_id, KilometerDriven.all, :id, :name, {}, {class: 'form-control '}) %>
+      </div>
     </div>
-    <div class="field">
-      <%= collection_select(:seller, :model_id, Model.all, :id, :name, {}, {class: 'form-control '}) %>
-    </div>
-    <div class="field">
-    <%= collection_select(:seller, :registration_year_id, RegistrationYear.all, :id, :name, {}, {class:'form-control '}) %>
-    </div>
-  </div>
-  <div class="col-md-6">  
-    <div class="field">
-    <%= collection_select(:seller, :registration_state_id, RegistrationState.all, :id, :name, {}, {class: 'form-control '}) %>
-    </div>
-    <div class="field">
-    <%= collection_select(:seller, :variant_id, Variant.all, :id, :name, {}, {class: 'form-control '}) %>
-    </div>
-    <div class="field">
-    <%= collection_select(:seller, :kilometer_driven_id, KilometerDriven.all, :id, :name, {}, {class: 'form-control '}) %>
-    </div>
-  </div>
   </div>    
   <div class="actions text-center mt-4  ">
-  <%= form.submit 'post add', class: " shadow-sm p-3 mb-5  rounded"%>
+    <%= form.submit 'post add', class: " shadow-sm p-3 mb-5  rounded"%>
   </div>
-    <% end %>
+  <% end %>
 </div>

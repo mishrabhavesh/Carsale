@@ -1,12 +1,9 @@
 class CarCostsController < ApplicationController
-  before_action :set_car_cost, only: [:show, :edit, :update, :destroy]
-  access except: [:show, :edit, :create, :update, :new, :destroy, :index], user: {except:[:show, :edit, :create, :update, :new, :destroy, :index]}, Admin: :all ,Buyer: {except:[:show, :edit, :create, :update, :new, :destroy, :index]}, Seller: {except:[:show, :edit, :create, :update, :new, :destroy, :index]}, message: "Only Admin can perform this"
+  before_action :set_car_cost, only: [:edit, :update]
+  access except: [ :edit, :create, :update, :new, :index], user: {except:[ :edit, :create, :update, :new, :index]}, Admin: :all ,Buyer: {except:[ :create, :update, :new, :index]}, Seller: {except:[ :edit, :create, :update, :new,:index]}, message: "Only Admin can perform this"
 
   def index
     @carcosts = CarCost.all
-  end
-
-  def show
   end
 
   def new
@@ -32,11 +29,6 @@ class CarCostsController < ApplicationController
     else
       render :edit
     end
-  end
-
-  def destroy
-    @carcost.destroy
-    redirect_to car_costs_path, notice: 'Carcost was successfully destroyed.'
   end
 
   private

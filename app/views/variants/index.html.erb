@@ -9,19 +9,17 @@
   <thead class="thead-dark">
     <tr>
       <th>Name</th>
-      <th>Show</th>
       <th>Edit</th>
       <th>Destroy</th>
     </tr>
   </thead>
   <tbody>
-  <% @variants.each do |variant| %>
-    <tr>
-    <td><%= variant.name  %></td>
-    <td><%= link_to 'Show', variant , class: 'btn btn-info ' %></td>
-    <td><%= link_to 'Edit', edit_variant_path(variant), class: 'btn btn-warning '  %></td>
-    <td><%= link_to 'Destroy', variant, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger '  %></td>
-    </tr>
+    <% @variants.each do |variant| %>
+      <tr>
+        <td><%= variant.name  %></td>
+        <td><%= link_to 'Edit', edit_variant_path(variant), class: 'btn btn-warning '  %></td>
+        <td><%= link_to 'Destroy', variant, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger '  %></td>
+      </tr>
   <% end %>
   </tbody>
 </table>

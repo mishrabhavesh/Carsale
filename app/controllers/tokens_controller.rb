@@ -1,21 +1,22 @@
 class TokensController < ApplicationController
-  before_action :set_token, only: [:show, :edit, :update, :destroy]
-  access except: [:show, :edit, :create, :update, :new, :destroy, :index], user: {except:[:show, :edit, :create, :update, :new, :destroy, :index]}, Admin: :all ,Buyer: {except:[:show, :edit, :create, :update, :new, :destroy, :index]}, Seller: {except:[:destroy]}, message: "Only Admin can perform this"
-
+  before_action :set_token, only: [ :edit, :update,:show ]
+  access except: [ :edit, :create, :update, :new,  :index], user: {except:[ :edit, :create, :update, :new,  :index]}, Admin: :all ,Buyer: {except:[ :edit, :create, :update, :new,  :index]}, Seller: {except:[:edit,:update]}, message: "Only Admin can perform this"
+  include ApplicationHelper
   def index
     @mylist = current_user.tokens
       @tokens = Token.all
   end
 
-  def show
-  
+  def my_add
+    @my_add = my_post
   end
-
-
 
   def new
     @token = Token.new
+  end
 
+  def show
+    
   end
 
   def edit
@@ -42,11 +43,6 @@ class TokensController < ApplicationController
 
   def status_search
     @search = Token.all.where(id: params[:q])
-  end
-
-  def destroy
-    @token.destroy
-    redirect_to tokens_url, notice: 'Token was successfully destroyed.'
   end
 
   private

@@ -1,7 +1,6 @@
 class SellersController < ApplicationController
-	before_action :set_seller, only: [:show, :edit, :update, :destroy]
 	before_action :authenticate_user!
-	access except: [:show, :edit, :create, :update, :new, :destroy, :index], user: {except:[:show, :edit, :create, :update, :new, :destroy, :index]}, Admin: :all ,Buyer: {except:[:new]}, Seller: {except:[:destroy,:index]}, message: "Only Admin can perform this"
+	access except: [  :create, :new , :index], user: {except:[ :create, :new , :index]}, Admin: :all ,Buyer: {except:[:new, :create]}, Seller: {except: [:index]}, message: "Only Admin can perform this"
 	include SellersHelper
 
 	def index
@@ -12,15 +11,8 @@ class SellersController < ApplicationController
 		end
 	end 
 
-	
-	def show
-	end
-
 	def new
 		@seller = Seller.new
-	end
-
-	def edit
 	end
 
 	def search_model
@@ -65,30 +57,8 @@ class SellersController < ApplicationController
 		end
 	end
 
-	
-	def update
-		respond_to do |format|
-			if @seller.update(seller_params)
-				format.html { redirect_to @seller, notice: 'post updated.' }
-			else
-				format.html { render :edit }
-			end
-		end
-	end
-
-
-	
-	def destroy
-		@seller.destroy
-		respond_to do |format|
-			format.html { redirect_to sellers_url, notice: 'Seller was successfully destroyed.' }
-		end
-	end
 
 	private
-		def set_seller
-			@seller = Seller.find(params[:id])
-		end
 
 		def seller_params
 			params.require(:seller).permit(:city_id, :brand_id, :model_id, :registration_year_id, :registration_state_id, :variant_id, :kilometer_driven_id,:token_id, :user_id)

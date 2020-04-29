@@ -12,7 +12,6 @@
   <thead class="thead-dark">
     <tr>
       <th>Name</th>
-      <th>Show</th>
       <th>Edit</th>
       <th>Destroy</th>
     </tr>
@@ -20,10 +19,9 @@
   <tbody>
   <% @cities.each do |city| %>
     <tr>
-    <td><%= city.name  %></td>
-    <td><%= link_to 'Show', city , class: 'btn btn-info ' %></td>
-    <td><%= link_to 'Edit', edit_city_path(city), class: 'btn btn-warning '  %></td>
-    <td><%= link_to 'Destroy', city, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger '  %></td>
+      <td><%= city.name  %></td>
+      <td><%= link_to 'Edit', edit_city_path(city), class: 'btn btn-warning '  %></td>
+      <td><%= link_to 'Destroy', city, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger '  %></td>
     </tr>
   <% end %>
   </tbody>
