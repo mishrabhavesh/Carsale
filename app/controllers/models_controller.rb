@@ -16,7 +16,6 @@ class ModelsController < ApplicationController
   def create
     @model = Model.new(model_params)
 
-    respond_to do |format|
       if @model.save
         format.html { redirect_to models_path, notice: 'Model was successfully created.' }
       else
@@ -26,7 +25,6 @@ class ModelsController < ApplicationController
   end
 
   def update
-    respond_to do |format|
       if @model.update(model_params)
         format.html { redirect_to models_path, notice: 'Model was successfully updated.' }
       else
@@ -38,7 +36,6 @@ class ModelsController < ApplicationController
 
   def destroy
     @model.destroy
-    respond_to do |format|
       format.html { redirect_to models_url, notice: 'Model was successfully destroyed.' }
     end
   end

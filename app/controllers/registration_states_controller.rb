@@ -16,7 +16,6 @@ class RegistrationStatesController < ApplicationController
   def create
     @registrationstate = RegistrationState.new(registration_state_params)
 
-    respond_to do |format|
       if @registrationstate.save
         format.html { redirect_to registration_states_path, notice: 'RegistrationState was successfully created.' }
       else
@@ -26,7 +25,6 @@ class RegistrationStatesController < ApplicationController
   end
 
   def update
-    respond_to do |format|
       if @registrationstate.update(registration_state_params)
         format.html { redirect_to registration_states_path, notice: 'RegistrationState was successfully updated.' }
       else
@@ -37,7 +35,6 @@ class RegistrationStatesController < ApplicationController
 
   def destroy
     @registrationstate.destroy
-    respond_to do |format|
       format.html { redirect_to registration_states_url, notice: 'RegistrationState was successfully destroyed.' }
     end
   end

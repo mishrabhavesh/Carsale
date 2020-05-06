@@ -16,7 +16,6 @@ class KilometerDrivensController < ApplicationController
   def create
     @kilometerdriven = KilometerDriven.new(kilometer_driven_params)
 
-    respond_to do |format|
       if @kilometerdriven.save
         format.html { redirect_to kilometer_drivens_path, notice: 'Kilometerdriven was successfully created.' }
       else
@@ -26,7 +25,6 @@ class KilometerDrivensController < ApplicationController
   end
 
   def update
-    respond_to do |format|
       if @kilometerdriven.update(kilometer_driven_params)
         format.html { redirect_to kilometer_drivens_path, notice: 'Kilometerdriven was successfully updated.' }
       else
@@ -37,7 +35,6 @@ class KilometerDrivensController < ApplicationController
 
   def destroy
     @kilometerdriven.destroy
-    respond_to do |format|
       format.html { redirect_to kilometer_drivens_url, notice: 'Kilometerdriven was successfully destroyed.' }
     end
   end
