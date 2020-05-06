@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_27_095625) do
+ActiveRecord::Schema.define(version: 2020_05_06_105417) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,6 +59,8 @@ ActiveRecord::Schema.define(version: 2020_04_27_095625) do
     t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "brand_id"
+    t.index ["brand_id"], name: "index_models_on_brand_id"
     t.index ["name"], name: "index_models_on_name", unique: true
   end
 
@@ -124,6 +126,7 @@ ActiveRecord::Schema.define(version: 2020_04_27_095625) do
   end
 
   add_foreign_key "locations", "users"
+  add_foreign_key "models", "brands"
   add_foreign_key "sellers", "brands"
   add_foreign_key "sellers", "cities"
   add_foreign_key "sellers", "kilometer_drivens"
