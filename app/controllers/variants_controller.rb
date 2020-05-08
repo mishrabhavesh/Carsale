@@ -17,30 +17,26 @@ class VariantsController < ApplicationController
   
   def create
     @variant = Variant.new(variant_params)
-
       if @variant.save
-        format.html { redirect_to variants_path, notice: 'Variant was successfully created.' }
+        redirect_to variants_path, notice: 'Variant was successfully created.'
       else
-        format.html { render :new }
+        render :new 
       end
-    end
   end
 
   
   def update
       if @variant.update(variant_params)
-        format.html { redirect_to variants_path, notice: 'Variant was successfully updated.' }
+        redirect_to variants_path, notice: 'Variant was successfully updated.' 
       else
-        format.html { render :edit }
+        render :edit 
       end
-    end
   end
 
   
   def destroy
     @variant.destroy
-      format.html { redirect_to variants_url, notice: 'Variant was successfully destroyed.' }
-    end
+    redirect_to variants_url, notice: 'Variant was successfully destroyed.' 
   end
 
   private

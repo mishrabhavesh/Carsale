@@ -17,26 +17,26 @@ class RegistrationStatesController < ApplicationController
     @registrationstate = RegistrationState.new(registration_state_params)
 
       if @registrationstate.save
-        format.html { redirect_to registration_states_path, notice: 'RegistrationState was successfully created.' }
+        redirect_to registration_states_path, notice: 'RegistrationState was successfully created.' 
       else
-        format.html { render :new }
+        render :new 
       end
-    end
+    
   end
 
   def update
       if @registrationstate.update(registration_state_params)
-        format.html { redirect_to registration_states_path, notice: 'RegistrationState was successfully updated.' }
+        redirect_to registration_states_path, notice: 'RegistrationState was successfully updated.'
       else
-        format.html { render :edit }
+        render :edit
       end
-    end
+    
   end
 
   def destroy
     @registrationstate.destroy
-      format.html { redirect_to registration_states_url, notice: 'RegistrationState was successfully destroyed.' }
-    end
+      redirect_to registration_states_url, notice: 'RegistrationState was successfully destroyed.' 
+    
   end
 
   private

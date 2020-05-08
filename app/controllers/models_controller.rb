@@ -17,27 +17,26 @@ class ModelsController < ApplicationController
     @model = Model.new(model_params)
 
       if @model.save
-        format.html { redirect_to models_path, notice: 'Model was successfully created.' }
+        redirect_to models_path, notice: 'Model was successfully created.' 
       else
-        format.html { render :new }
+        render :new
       end
-    end
+    
   end
 
   def update
       if @model.update(model_params)
-        format.html { redirect_to models_path, notice: 'Model was successfully updated.' }
+        redirect_to models_path, notice: 'Model was successfully updated.'
       else
-        format.html { render :edit }
+        render :edit
       end
-    end
+    
   end
 
 
   def destroy
     @model.destroy
-      format.html { redirect_to models_url, notice: 'Model was successfully destroyed.' }
-    end
+      redirect_to models_url, notice: 'Model was successfully destroyed.'
   end
 
   private

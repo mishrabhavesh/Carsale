@@ -17,26 +17,23 @@ class BrandsController < ApplicationController
     @brand = Brand.new(brand_params)
 
       if @brand.save
-        format.html { redirect_to brands_path, notice: 'Brand was successfully created.' }
+        redirect_to brands_path, notice: 'Brand was successfully created.'
       else
-        format.html { render :new }
+        render :new
       end
-    end
   end
 
   def update
       if @brand.update(brand_params)
-        format.html { redirect_to brands_path, notice: 'Brand was successfully updated.' }
+        redirect_to brands_path, notice: 'Brand was successfully updated.'
       else
-        format.html { render :edit }
+        render :edit
       end
-    end
   end
 
   def destroy
     @brand.destroy
-      format.html { redirect_to brands_url, notice: 'Brand was successfully destroyed.' }
-    end
+      redirect_to brands_url, notice: 'Brand was successfully destroyed.' 
   end
 
   private

@@ -11,7 +11,7 @@ class Seller < ApplicationRecord
   validates :registration_state_id, presence: true
   validates :city_id, presence: true
   validates :kilometer_driven_id, presence: true
-  validates :registration_year_id, presence: true
+  validates :registration_year_id, presence: true 
   validates :model_id, presence: true
   validates :variant_id, presence: true
 

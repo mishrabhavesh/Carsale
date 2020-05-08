@@ -16,45 +16,45 @@ class SellersController < ApplicationController
 	end
 
 	def search_model
-			@sellers = Seller.car_model( params[:seller][:model_id])
+			@sellers = Seller.car_model( params[:model_id])
 	end
 
 	def search_city
-			@sellers = Seller.car_city( params[:seller][:city_id])
+			@sellers = Seller.car_city( params[:city_id])
 	end
 
 	def search_brand
-			@sellers = Seller.car_brand( params[:seller][:brand_id])
+			@sellers = Seller.car_brand( params[:brand_id])
 	end
 
-	def search_reg_year
-			@sellers = Seller.car_reg_year( params[:seller][:registration_year_id])
+	def search_registration_year
+			@sellers = Seller.car_reg_year( params[:registration_year_id])
 	end
 	
 	def search_kilometer_driven
-			@sellers = Seller.car_kilometer_driven( params[:seller][:kilometer_driven_id])
+			@sellers = Seller.car_kilometer_driven( params[:kilometer_driven_id])
 	end
 
 	def search_variant
-			@sellers = Seller.car_variant( params[:seller][:variant_id])
+			@sellers = Seller.car_variant( params[:variant_id])
 	end
 
-	def search_reg_state
-			@sellers = Seller.car_reg_state( params[:seller][:registration_state_id])
+	def search_registration_state
+			@sellers = Seller.car_reg_state( params[:registration_state_id])
 	end
 
+  def purchase
+
+  end
 	
 	def create
 		@seller = Seller.new(seller_params)
 		@seller.user_id = current_user.id
-		
-		respond_to do |format|
 			if @seller.save
-				format.html { redirect_to new_token_path, notice: 'Add was sucessfully posted.' }
+				redirect_to new_token_path, notice: 'Add was sucessfully posted.' 
 			else
-				format.html { render :new }
+				render :new
 			end
-		end
 	end
 
 

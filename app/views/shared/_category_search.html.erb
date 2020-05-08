@@ -1,3 +1,5 @@
+<h1 align="center" class=" card-header my-4">Buy Car</h1>
+<%= link_to 'All post', sellers_path, class: "btn btn-info btn-lg" %>
 <%if logged_in?(:Buyer, :Admin)%>
     <%= form_tag sellers_path, method: :get do %>
       <p>
@@ -7,51 +9,24 @@
     <%end%>
 <% end %>
 <%= stylesheet_link_tag 'search', media: 'all', 'data-turbolinks-track': 'reload' %>
-  <div class=" d-flex">
-    <div class="d-flex flex-column justify-content-end align-items-start ">
-      <%= form_tag search_city_path, method: 'get' do %>
-      <h6>Search by city</h6>
-      <%= collection_select :seller, :city_id, City.all, :id, :name, prompt: true, class: 'form-control' %>
-      <%= submit_tag "search"  %>
-      <% end %>
-
-    <%= form_tag search_brand_path, method: 'get' do %>
-      <h6>Search by Brand</h6>
-      <%= collection_select :seller, :brand_id, Brand.all, :id, :name, prompt: true %>
-      <%= submit_tag "search" %>
+  <%= form_tag search_city_path, method: 'get' do %>
+    <%= select_tag "city_id", options_from_collection_for_select(City.all, "id", "name",selected: params[:city_id]), onchange:  "this.form.submit();", prompt: "Search by city", class: "custom-select" %>      
     <% end %>
-
-    <%= form_tag search_registration_year_path, method: 'get' do %>
-      <h6>Search by Registrationyear</h6>
-      <%= collection_select :seller, :registration_year_id, RegistrationYear.all, :id, :name, prompt: true %>
-      <%= submit_tag "search" %>
-    <% end %>
-
-    <div class="text-center my-4 "><%= link_to 'All post', sellers_path, class: 'btn btn-info btn-lg' %></div>
-  </div>
-  <div class="d-flex flex-column justify-content-end align-items-end">
-    <%= form_tag search_kilometer_path, method: 'get' do %>
-      <h6>Search by Kilometerdriven</h6>
-      <%= collection_select :seller, :kilometer_driven_id, KilometerDriven.all, :id, :name, prompt: true %>
-      <%= submit_tag "search" %>
-    <% end %>
-
-    <%= form_tag search_variant_path, method: 'get' do %>
-      <h6>Search by Variant</h6>
-      <%= collection_select :seller, :variant_id, Variant.all, :id, :name, prompt: true %>
-      <%= submit_tag "search" %>
-    <% end %>
-
-    <%= form_tag search_registration_state_path, method: 'get' do %>
-      <h6>Search by Registrationstate</h6>
-      <%= collection_select :seller, :registration_state_id, RegistrationState.all, :id, :name, prompt: true %>
-      <%= submit_tag "search" %>
-    <% end %>
-
     <%= form_tag search_model_path, method: 'get' do %>
-      <h6>Search by Model</h6>
-      <%= collection_select :seller, :model_id, Model.all, :id, :name, prompt: true %>
-      <%= submit_tag "search" %>
+    <%= select_tag "model_id", options_from_collection_for_select(Model.all, "id", "name",selected: params[:model_id]), onchange:  "this.form.submit();", prompt: "Search by model", class: "custom-select" %>      
     <% end %>
-  </div>
-</div>    
+    <%= form_tag search_brand_path, method: 'get' do %>
+    <%= select_tag "brand_id", options_from_collection_for_select(Brand.all, "id", "name",selected: params[:brand_id]), onchange: "this.form.submit();", prompt: "Search by brand", class: "custom-select" %>      
+    <% end %>
+    <%= form_tag search_registration_year_path, method: 'get' do %>
+    <%= select_tag "registration_year_id", options_from_collection_for_select(RegistrationYear.all, "id", "name",selected: params[:registration_year_id]), onchange: "this.form.submit();", prompt: "Search by Registration Year", class: "custom-select" %>      
+    <% end %>
+     <%= form_tag search_kilometer_path, method: 'get' do %>
+    <%= select_tag "kilometer_driven_id", options_from_collection_for_select(KilometerDriven.all, "id", "name",selected: params[:kilometer_driven_id]), onchange: "this.form.submit();", prompt: "Search by Kilometer Driven", class: "custom-select" %>      
+    <% end %>
+     <%= form_tag search_variant_path, method: 'get' do %>
+    <%= select_tag "variant_id", options_from_collection_for_select(Variant.all, "id", "name",selected: params[:variant_id]), onchange: "this.form.submit();", prompt: "Search by Variant", class: "custom-select" %>      
+    <% end %>
+     <%= form_tag search_registration_state_path, method: 'get' do %>
+    <%= select_tag "registration_state_id", options_from_collection_for_select(RegistrationState.all, "id", "name",selected: params[:registration_state_id]), onchange: "this.form.submit();", prompt: "Search by Registration State", class: "custom-select" %>      
+    <% end %>

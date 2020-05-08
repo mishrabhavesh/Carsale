@@ -8,11 +8,12 @@ Rails.application.routes.draw do
   resources :variants, except: [:show]
   get 'search_city' , to: 'sellers#search_city'
   get 'search_brand', to: 'sellers#search_brand'
-  get 'search_registration_year', to: 'sellers#search_reg_year'
+  get 'search_registration_year', to: 'sellers#search_registration_year'
   get 'search_variant', to: 'sellers#search_variant'
-  get 'search_registration_state', to: 'sellers#search_reg_state'
+  get 'search_registration_state', to: 'sellers#search_registration_state'
   get 'search_kilometer', to: 'sellers#search_kilometer_driven'
   get 'search_model', to: 'sellers#search_model'
+  get 'purchase', to: 'sellers#purchase'
   resources :registration_states, except: [:show]
   resources :brands, except: [:show]
   resources :cities, except: [:show]

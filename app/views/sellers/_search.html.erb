@@ -11,6 +11,9 @@
       <% if logged_in?(:Admin)%>
       <th scope="col">Appointment status</th>
       <%end%>
+      <% if !logged_in?(:Admin)%>
+      <th scope="col">Buy</th>
+      <%end%>
     </tr>
   </thead>
   <tbody>
@@ -24,7 +27,10 @@
         <td><%= seller.registration_state.name %></td>
         <td><%= seller.variant.name %></td>
         <% if logged_in?(:Admin)%>
-          <td><%= link_to 'Change status', edit_token_path(seller) ,class: "nav-link  btn btn-info p-1 " %></td>
+          <td><%= link_to 'Change status', purchase_path ,class: "nav-link  btn btn-info p-1 " %></td>
+        <%end%>
+        <% if !logged_in?(:Admin)%>
+          <td><%= link_to 'Purchase', edit_token_path(seller) ,class: "nav-link  btn btn-info p-1 " %></td>
         <%end%>
       </tr>
     <% end %>

@@ -18,27 +18,24 @@ class CitiesController < ApplicationController
     @city = City.new(city_params)
 
       if @city.save
-        format.html { redirect_to cities_path notice: 'City was successfully created.' }
+        redirect_to cities_path notice: 'City was successfully created.' 
       else
-        format.html { render :new }
+        render :new 
       end
-    end
-  end
+s  end
 
 
   def update
       if @city.update(city_params)
-        format.html { redirect_to cities_path, notice: 'City was successfully updated.' }
+         redirect_to cities_path, notice: 'City was successfully updated.' 
       else
-        format.html { render :edit }
+        render :edit
       end
-    end
   end
 
   def destroy
     @city.destroy
-      format.html { redirect_to cities_url, notice: 'City was successfully destroyed.' }
-    end
+      redirect_to cities_url, notice: 'City was successfully destroyed.'
   end
 
   private
