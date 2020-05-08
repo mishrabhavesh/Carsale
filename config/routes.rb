@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :locations, except: [:show,:edit,:update,:destroy]
   resources :car_costs, except: [:show,:destroy]
-  resources :tokens, except: [:destroy]
+  resources :tokens 
   get 'admin/admin'
   resources :models, except: [:show]
   resources :kilometer_drivens, except: [:show]
@@ -13,11 +13,19 @@ Rails.application.routes.draw do
   get 'search_registration_state', to: 'sellers#search_registration_state'
   get 'search_kilometer', to: 'sellers#search_kilometer_driven'
   get 'search_model', to: 'sellers#search_model'
-  get 'purchase', to: 'sellers#purchase'
+  get 'update_status', to: 'tokens#update_status'
+
   resources :registration_states, except: [:show]
   resources :brands, except: [:show]
   resources :cities, except: [:show]
-  resources :sellers, except: [:show,:edit,:destroy,:update]
+  resources :sellers do 
+              member do
+                get :toggle_status
+                get :approve
+                get :reject
+              end
+            end
+    
   devise_for :users,path: '', path_names: {sign_in: 'login', sign_out: 'logout' }
   root to:'pages#home'
   get 'status_search' ,  to:'tokens#status_search'

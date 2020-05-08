@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_06_105417) do
+ActiveRecord::Schema.define(version: 2020_05_08_120641) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -90,6 +90,8 @@ ActiveRecord::Schema.define(version: 2020_05_06_105417) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "phoneno"
     t.integer "user_id"
+    t.string "purchase_status", default: "purchase"
+    t.integer "buyer_id"
   end
 
   create_table "tokens", force: :cascade do |t|
@@ -98,7 +100,9 @@ ActiveRecord::Schema.define(version: 2020_05_06_105417) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "status", default: "processing"
     t.integer "user_id"
+    t.bigint "seller_id"
     t.index ["phoneno"], name: "index_tokens_on_phoneno"
+    t.index ["seller_id"], name: "index_tokens_on_seller_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -135,5 +139,6 @@ ActiveRecord::Schema.define(version: 2020_05_06_105417) do
   add_foreign_key "sellers", "registration_years"
   add_foreign_key "sellers", "users"
   add_foreign_key "sellers", "variants"
+  add_foreign_key "tokens", "sellers"
   add_foreign_key "tokens", "users"
 end

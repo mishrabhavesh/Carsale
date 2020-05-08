@@ -31,17 +31,6 @@
         </tr> 
       <% end %>
       <%end%>
-      <% if logged_in?(:Admin) %> 
-        <% @tokens.each do |token| %>
-        <tr>
-          <td><%= token.id %></td>
-          <td><%= token.phoneno %></td>
-          <td>  <%= time_ago_in_words(token.created_at) %></td>
-          <td><%= token.status.upcase %>  </td>
-          <td><%= link_to 'Update status', edit_token_path(token), class: 'btn btn-info' %></td>
-        </tr>
-        <% end %>
-      <% end %>
     </tbody>
     <% end %>
   </table>

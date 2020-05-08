@@ -25,6 +25,7 @@ class TokensController < ApplicationController
   def create
     @token = Token.new(token_params)
     @token.user_id = current_user.id
+    @token.seller_id = current_user.sellers.last.id
 
     if @token.save
       redirect_to @token, notice: 'Token was successfully created.'
@@ -44,6 +45,9 @@ class TokensController < ApplicationController
   def status_search
     @search = Token.all.where(id: params[:q])
   end
+  def update_status
+    @update= Seller.all.where(purchase_status:"cancel purchase")
+  end
 
   private
     def set_token
@@ -51,6 +55,6 @@ class TokensController < ApplicationController
     end
 
     def token_params
-      params.require(:token).permit(:phoneno, :user_id,:status)
+      params.require(:token).permit(:phoneno, :user_id,:status,:seller_id)
     end
 end

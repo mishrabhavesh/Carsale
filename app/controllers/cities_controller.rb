@@ -22,7 +22,7 @@ class CitiesController < ApplicationController
       else
         render :new 
       end
-s  end
+  end
 
 
   def update

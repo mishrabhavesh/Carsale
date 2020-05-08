@@ -1,5 +1,6 @@
 class Seller < ApplicationRecord
   belongs_to :brand
+  belongs_to :user
   belongs_to :city
   belongs_to :kilometer_driven
   belongs_to :registration_state
@@ -23,5 +24,11 @@ class Seller < ApplicationRecord
   scope :car_variant, -> car_variant_id { where(variant_id: car_variant_id )}
   scope :car_reg_state, -> car_reg_state_id { where(registration_state_id:  car_reg_state_id )}
   # Ex:- scope :active, -> {where(:active => true)}
+  def self.approve_status(user)
+    BuyerMailer.approve(user).deliver
+  end
+  def self.reject_status(user)
+    BuyerMailer.reject(user).deliver
+  end
   
 end

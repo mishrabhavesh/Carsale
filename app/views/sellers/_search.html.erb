@@ -18,21 +18,23 @@
   </thead>
   <tbody>
     <% @sellers.each do |seller| %>
-      <tr>
-        <td><%= seller.city.name %></td>
-        <td><%= seller.model.name %></td>
-        <td><%= seller.brand.name %></td>
-        <td><%= seller.kilometer_driven.name %></td>
-        <td><%= seller.registration_year.name %></td>
-        <td><%= seller.registration_state.name %></td>
-        <td><%= seller.variant.name %></td>
-        <% if logged_in?(:Admin)%>
-          <td><%= link_to 'Change status', purchase_path ,class: "nav-link  btn btn-info p-1 " %></td>
-        <%end%>
-        <% if !logged_in?(:Admin)%>
-          <td><%= link_to 'Purchase', edit_token_path(seller) ,class: "nav-link  btn btn-info p-1 " %></td>
-        <%end%>
-      </tr>
+    <% if seller.purchase_status != 'Sold' %>
+        <tr>
+          <td><%= seller.city.name %></td>
+          <td><%= seller.model.name %></td>
+          <td><%= seller.brand.name %></td>
+          <td><%= seller.kilometer_driven.name %></td>
+          <td><%= seller.registration_year.name %></td>
+          <td><%= seller.registration_state.name %></td>
+          <td><%= seller.variant.name %></td>
+          <% if logged_in?(:Admin)%>
+            <td><%= link_to 'Change status', edit_token_path(seller) ,class: "nav-link  btn btn-info p-1 " %></td>
+          <%end%>
+          <% if !logged_in?(:Admin)%>
+            <td> <%= link_to seller.purchase_status, toggle_status_seller_path(seller) , class: "btn btn-dark px-3" %></td>
+          <%end%>
+        </tr>
+      <% end %>  
     <% end %>
   </tbody>
 </table>

@@ -13,5 +13,6 @@ class User < ApplicationRecord
          :confirmable         
          has_many :locations 
          has_many :tokens
+         has_many :sellers 
          
 end
