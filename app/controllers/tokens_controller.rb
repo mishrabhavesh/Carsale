@@ -45,6 +45,7 @@ class TokensController < ApplicationController
   def status_search
     @search = Token.all.where(id: params[:q])
   end
+  
   def update_status
     @update= Seller.all.where(purchase_status:"cancel purchase")
   end

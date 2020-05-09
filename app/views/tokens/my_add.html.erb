@@ -8,6 +8,7 @@
       <th scope="col">Registration-Year</th>
       <th scope="col">Registration-State</th>
       <th scope="col">Variant</th>
+      <th>Status</th>
       <% if logged_in?(:Admin)%>
       <th scope="col">Appointment status</th>
       <th scope="col">Delete Post</th>
@@ -24,6 +25,11 @@
         <td><%= seller.registration_year.name %></td>
         <td><%= seller.registration_state.name %></td>
         <td><%= seller.variant.name %></td>
+        <td><% seller.tokens.each do |p|%>
+        <%= p.status%>
+        <%end%>
+         
+          </td>
         <% if logged_in?(:Admin)%>
           <td><%= link_to 'Change status', edit_token_path(seller) ,class: "nav-link  btn btn-info p-1 " %></td>
           <td><%= link_to 'Destroy', seller, method: :delete, data: { confirm: 'Are you sure?' },class: "nav-link  btn btn-info rounded-pill" %></td>

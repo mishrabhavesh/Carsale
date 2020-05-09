@@ -7,8 +7,7 @@
   </div>
 
   <div class="field card-body">
-  <h2>Select brand associated with model</h2>
-    <%= collection_select(:model, :brand_id, Brand.all, :id, :name, {},  {class: 'form-control '}) %>
+    <%= collection_select(:model, :brand_id, Brand.all, :id, :name, prompt: "Select Brand associated with model", class: 'form-control text-center ') %>
   </div>
 
   <div class="actions text-center">

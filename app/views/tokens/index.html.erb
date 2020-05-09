@@ -3,7 +3,7 @@
 <div class="container home">
   <table class="table">
     <% if !logged_in?(:Admin) %>
-      <%= link_to 'My Advertisement', my_add_path, class: "btn btn-info m-4" %>
+      <%= link_to 'My Advertisement', my_add_tokens_path, class: "btn btn-info m-4" %>
       <%= link_to 'Create new token', new_token_path, class: "btn btn-primary rounded-pill my-4" %>
     <% end %>
   <% if @mylist.empty? and !logged_in?(:Admin) %>

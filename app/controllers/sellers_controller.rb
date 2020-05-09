@@ -1,6 +1,6 @@
 class SellersController < ApplicationController
   before_action :authenticate_user!
-  access except: [  :create, :new , :index], user: {except:[ :create, :new , :index]}, Admin: :all ,Buyer: {except:[:new, :create]}, Seller: {except: [:index]}, message: "Only Admin can perform this"
+  access except: [  :create, :new , :index], user: {except:[ :create, :new , :index, :approve,:reject]}, Admin: :all ,Buyer: {except:[:new, :create, :approve,:reject]}, Seller: {except: [:index, :approve,:reject]}, message: "Only Admin can perform this"
   include SellersHelper
 
   def index
@@ -64,9 +64,8 @@ class SellersController < ApplicationController
       p.status = "SOLD"
       p.save
     end
-    redirect_to update_status_path
+    redirect_to update_status_tokens_path
   end
-
 
 
   def reject
@@ -75,7 +74,7 @@ class SellersController < ApplicationController
     @seller.save
     user=User.find(@seller.buyer_id).email
     Seller.reject_status(user)
-    redirect_to update_status_path
+    redirect_to update_status_tokens_path
   end
 
 def toggle_status

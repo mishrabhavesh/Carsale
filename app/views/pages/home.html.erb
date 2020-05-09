@@ -10,10 +10,12 @@
       </div>
     </div>
   <div>
+  <% if !logged_in?(:Admin)%>
   <div class="my-4">
     <%= link_to 'Sell', new_seller_path, class: "btn px-5 btn-lg btn-info rounded-pill" if logged_in?(:Admin, :Seller)%>
   </div>
   <div>
     <%= link_to 'Buy', sellers_path, class: "btn btn-lg px-5 btn-primary rounded-pill" if logged_in?(:Admin, :Buyer)%>
   </div>
+  <% end %>
 </div>

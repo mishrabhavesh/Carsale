@@ -21,7 +21,7 @@
           <%= link_to 'Edit', edit_user_registration_path(current_user), class: 'dropdown-item' %>
           <% if logged_in?(:Seller)%>
             <%= link_to 'My appointment', tokens_path, class: "dropdown-item" %>
-            <%= link_to 'Brannch', locations_path, class: "dropdown-item" %> 
+            <%= link_to 'Branch', locations_path, class: "dropdown-item" %> 
             <form class="form-inline my-2 mx-2 my-lg-0" action="status_search">
               <input class="form-control mr-sm-2 my-2" type="search" name="q" placeholder="Appointment no" aria-label="Search">
               <button class="btn btn-outline-success my-2  my-sm-0" type="submit">Search appointment</button>
@@ -39,7 +39,7 @@
           <%= link_to 'Login',new_user_session_path, class: 'nav-link btn btn-light ' %>
         <%end%>
         <% if logged_in?(:Admin)%>
-          <%= link_to 'Update status', update_status_path, class: 'nav-link btn btn-success rounded-pill ml-3' %>
+          <%= link_to 'Update status', update_status_tokens_path, class: 'nav-link btn btn-success rounded-pill ml-3' %>
         <%end%>
       </div> 
     </div>
