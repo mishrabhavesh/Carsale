@@ -88,7 +88,6 @@ ActiveRecord::Schema.define(version: 2020_05_08_120641) do
     t.integer "kilometer_driven_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "phoneno"
     t.integer "user_id"
     t.string "purchase_status", default: "purchase"
     t.integer "buyer_id"
